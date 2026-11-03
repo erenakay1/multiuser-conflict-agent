@@ -20,4 +20,8 @@ clone() {
 clone https://github.com/Kordi-AI/Multi-User-LLM-Agent.git Muses-Bench
 clone https://github.com/YuanJrShiuan/Harness-MulUser.git Harness-MU
 
+# Muses-Bench'in instruction-following değerlendiricisi IHEval'i Muses-Bench/IHEval altında bekler
+# (README'de belirtilmiyor). Ek bağımlılıklar: absl-py immutabledict langdetect nltk
+clone https://github.com/ytyz1307zzh/IHEval.git Muses-Bench/IHEval
+
 echo "Tamamlandı. Her reponun kendi README'sindeki kurulum adımlarını izleyin."

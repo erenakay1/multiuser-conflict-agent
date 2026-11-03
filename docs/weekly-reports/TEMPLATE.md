@@ -1,22 +1,38 @@
-# Haftalık Rapor — H? (gg–gg Ay YYYY)
+# Haftalık Rapor – HX (GG.AA – GG.AA.YYYY)
+**Proje:** Conflict-Aware Coordination Strategies for Multi-User LLM Agents with Equal-Authority Users
+**Ekip (Grup 2):** Eren AKAY (22091000274) · Yusuf DAŞDEMİR (<no>)
 
-## Yapılanlar
+## 1. Bu haftanın hedefi (ROADMAP)
+- ...
 
-### Eren Akay
--
+## 2. Yapılanlar
+**Eren:**
+- ...
+**Yusuf:**
+- ...
 
-### Yusuf Daşdemir
--
+## 3. Çıktılar / kanıtlar
+- Commit'ler: ...
+- Sonuçlar / tablolar / ekran görüntüleri: ...
+- Okunan / eklenen makaleler: ...
 
-## Çıktılar
-<!-- commit/PR bağlantıları, dosyalar, tablolar, grafikler -->
--
+## 4. Plana göre durum
+| Hedef | Sorumlu | Durum | Not |
+|---|---|---|---|
+| ... | Eren | ✅ / ⚠️ / ❌ | ... |
 
-## Sorunlar
--
+## 5. Sorunlar ve değerlendirme
+<!-- ÖĞRENCİ YAZACAK -->
 
-## Gelecek hafta
-| Kişi | İş |
-|---|---|
-| Eren | |
-| Yusuf | |
+## 6. Hocaya sorular
+<!-- ÖĞRENCİ YAZACAK -->
+
+## 7. Gelecek hafta planı
+**Eren:** ...
+**Yusuf:** ...
+
+---
+## Ortak tablo – 03 | Haftalık Takip satırı (kopyala-yapıştır)
+| Grup No | Hafta No | Hafta Tarihi | Bu Hafta Yapılan Çalışmalar | Karşılaşılan Sorunlar | Gelecek Haftanın Planı | İlerleme Durumu |
+|---|---|---|---|---|---|---|
+| 2 | X | GG.AA.YYYY – GG.AA.YYYY | Eren: ... Yusuf: ... | <öğrenci yazacak> | ... | <listeden seç> |
