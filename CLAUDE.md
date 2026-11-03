@@ -44,4 +44,5 @@ hata gösterebilir; ama rapor düzyazısını öğrenciler yazar.
 ## Git
 - Özellik başına branch (ör. `feat/h3-scenario-generator`), açıklayıcı commit mesajları.
 - Ekipte iki kişi var; commit geçmişi kimin ne yaptığını göstermeli.
-- Kullanıcı istemedikçe push yapma.
+- **Commit ve push'u Claude yapmaz; öğrenciler kendisi yapar.** Claude dosyaları düzenler, değişen
+  dosyaları ve önerilen commit mesajını bildirir, orada durur.
