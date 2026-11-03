@@ -1,7 +1,13 @@
 # Literatür Tablosu
 
-| # | Künye | Problem | Yöntem | Bulgu | Sınır | Bizimle ilişkisi |
+<!-- Sütunlar ortak tablodaki "02 | Literatür" sekmesiyle aynıdır (Grup No = 2 ve Proje Başlığı
+     tabloya aktarılırken eklenir). İçerik İngilizce yazılır, en az 5 makale.
+     Tabloyu öğrenciler doldurur; Claude yalnızca biçimi korur. -->
+
+| Makale Sıra No | Makale Başlığı | Yazar(lar) | Yıl | DOI / Yayın Bağlantısı | Çalışmanın Temel Bulgusu | Projeyle İlişkisi |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
-| 2 | | | | | | |
-| 3 | | | | | | |
+| 1 | Multi-User Large Language Model Agents | Shu Yang, Shenzhe Zhu, Hao Zhu, José Ramón Enríquez, Di Wang, Alex Pentland, Michiel A. Bakker, Jiaxin Pei | 2026 | https://arxiv.org/abs/2604.08567 | Frontier LLMs fail to keep stable prioritisation when users’ instructions conflict; instruction-following accuracy drops sharply under conflict and privacy erodes over multi-turn interactions (Muses-Bench, 19 models). | Main motivation; defines the multi-user problem. Conflicts are judged by authority hierarchy and equal-authority resolution is left as future work, which our project addresses. |
+| 2 | Harness-MU: A Safe, Governed, and Effective Harness for Multi-User LLM Agents | Wangxuan Fan, Xiaoyu Nie, Zhongxiang Dai | 2026 | https://arxiv.org/abs/2606.21856 | A model-agnostic harness that enforces permissions and authority rules in code achieves full privacy preservation and large instruction-following gains, at about 5× token cost. | Closest system work; resolves conflicts only by authority. Used as the basis of our hierarchy baseline (S2). |
+| 3 | LLM Agents for Coordinating Multi-User Information Gathering | Harsh Jhamtani, Jacob Andreas, Benjamin Van Durme | 2025 | https://aclanthology.org/2025.findings-acl.916/ | Introduces PeopleJoin, a benchmark where an agent gathers information distributed across 2–20 simulated users; popular agent architectures show clear accuracy and efficiency limits. | Supports our use of LLM-simulated users; its observation that too many agent questions burden users motivates our interruption-cost metric. |
+| 4 | MAP: Multi-user Personalization with Collaborative LLM-powered Agents | Christine P. Lee, Jihye Choi, Bilge Mutlu | 2025 | https://doi.org/10.1145/3706599.3719853 | A multi-agent workflow (reflection, analysis, feedback) resolves multi-user conflicts better than a single GPT-4 agent; a qualitative study (n=12) shows users value being involved in verifying resolutions. | Closest conflict-resolution work, but uses fixed priority rules and no fairness measure; we compare several strategies and measure fairness numerically. |
+| 5 | Collaborative Memory: Multi-User Memory Sharing in LLM Agents with Dynamic Access Control | Alireza Rezazadeh, Zichao Li, Ange Lou, Yuying Zhao, Wei Wei, Yujia Bao | 2025 | https://arxiv.org/abs/2505.18279 | A two-tier (private/shared) memory framework with time-varying access graphs enables safe, auditable knowledge sharing across users and agents. | Related multi-user work on privacy and access control; positions privacy as out of our scope. |

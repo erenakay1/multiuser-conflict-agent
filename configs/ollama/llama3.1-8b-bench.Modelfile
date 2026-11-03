@@ -1,0 +1,7 @@
+# Benchmark koşuları için llama3.1:8b varyantı.
+# Muses-Bench çağrılarda max_tokens vermiyor; 8B model temperature=1.0'da sonsuz üretime girebiliyor.
+# Varsayılan 4096 bağlam penceresi 10 kullanıcılı prompt'ları sessizce kesebiliyor.
+# Kurulum: ollama create llama3.1-8b-bench -f configs/ollama/llama3.1-8b-bench.Modelfile
+FROM llama3.1:8b
+PARAMETER num_ctx 16384
+PARAMETER num_predict 2048
