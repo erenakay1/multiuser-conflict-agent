@@ -1,0 +1,28 @@
+# Örnek deney: (strateji × dedektör × senaryo) ızgarası.
+name: example
+seed: 42
+
+# Senaryolar
+scenarios_dir: data/scenarios
+n_scenarios: 20
+
+# Karşılaştırılan bileşenler
+strategies:
+  - s0_naive
+  - s1_last_wins
+  - s2_hierarchy
+  - s3_compromise
+  - s4_group_vote
+detectors:
+  - rule_based
+  - llm_zero_shot
+  # - deberta          # H6 sonrası etkinleştir
+
+# S4 oylama yöntemleri
+s4_methods: [majority, borda]
+
+# Oturum ayarları
+max_turns: 12
+
+# false → DEV_MODEL (Ollama), true → EXPERIMENT_MODEL (API). API koşusundan önce maliyet tahmini al!
+use_experiment_model: false

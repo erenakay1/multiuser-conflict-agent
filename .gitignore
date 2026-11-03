@@ -1,0 +1,38 @@
+# Ortam / gizli bilgiler
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Deney çıktıları (yalnızca .gitkeep izlenir)
+results/*
+!results/.gitkeep
+
+# Ham veri (yalnızca .gitkeep izlenir)
+data/raw/*
+!data/raw/.gitkeep
+
+# Dış benchmark klonları (scripts/setup_external.sh)
+external/*
+!external/.gitkeep
+
+# Model ağırlıkları / checkpoint'ler
+*.pt
+*.safetensors
+checkpoints/
+
+# OS / editör
+.DS_Store
+.idea/
+.vscode/
