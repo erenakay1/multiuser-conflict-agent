@@ -1,0 +1,320 @@
+{
+  "id": "sc-0019",
+  "domain": "event_planning",
+  "description": "4 users, 5 messages; generator kind=near_miss",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Derya",
+        "rank": 0
+      },
+      "persona": "Night owl who enjoys late evenings.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "location",
+          "operator": "eq",
+          "value": "Kadıköy",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! Somewhere in Kadıköy would be ideal."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Selin",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u2",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-10",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hey everyone. Let's do it on Thursday, Dec 10."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Naz",
+        "rank": 0
+      },
+      "persona": "Parent with an early schedule.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u3",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 8,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hi all! Make sure the venue fits at least 8 of us."
+        },
+        {
+          "id": "c5",
+          "user_id": "u3",
+          "type": "time",
+          "operator": "gte",
+          "value": "16:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Hey everyone. I can't come before 16:00."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u4",
+          "type": "date",
+          "operator": "in",
+          "value": [
+            "2026-12-06",
+            "2026-12-10"
+          ],
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hey everyone. Either Sunday, Dec 6 or Thursday, Dec 10 works for me."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 0,
+      "text": "Hey everyone. Either Sunday, Dec 6 or Thursday, Dec 10 works for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Hi all! Somewhere in Kadıköy would be ideal.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 2,
+      "text": "Hi all! Make sure the venue fits at least 8 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 3,
+      "text": "Hey everyone. Let's do it on Thursday, Dec 10.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 4,
+      "text": "Hey everyone. I can't come before 16:00.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u4",
+      "type": "date",
+      "operator": "in",
+      "value": [
+        "2026-12-06",
+        "2026-12-10"
+      ],
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hey everyone. Either Sunday, Dec 6 or Thursday, Dec 10 works for me."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "location",
+      "operator": "eq",
+      "value": "Kadıköy",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! Somewhere in Kadıköy would be ideal."
+    },
+    {
+      "id": "c3",
+      "user_id": "u3",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 8,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hi all! Make sure the venue fits at least 8 of us."
+    },
+    {
+      "id": "c4",
+      "user_id": "u2",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-10",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hey everyone. Let's do it on Thursday, Dec 10."
+    },
+    {
+      "id": "c5",
+      "user_id": "u3",
+      "type": "time",
+      "operator": "gte",
+      "value": "16:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Hey everyone. I can't come before 16:00."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0019",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1589915144
+}

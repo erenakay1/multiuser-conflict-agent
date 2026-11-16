@@ -1,0 +1,105 @@
+{
+  "id": "sc-0050",
+  "domain": "event_planning",
+  "description": "2 users, 2 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Derya",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "diet",
+          "operator": "eq",
+          "value": "vegetarian",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Quick note: I need a place with vegetarian options."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Parent with an early schedule.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u2",
+          "type": "time",
+          "operator": "gte",
+          "value": "19:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hey everyone. Let's not start earlier than 19:00, I work until then."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 0,
+      "text": "Hey everyone. Let's not start earlier than 19:00, I work until then.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Quick note: I need a place with vegetarian options.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u2",
+      "type": "time",
+      "operator": "gte",
+      "value": "19:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hey everyone. Let's not start earlier than 19:00, I work until then."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "diet",
+      "operator": "eq",
+      "value": "vegetarian",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Quick note: I need a place with vegetarian options."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0050",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1840109255
+}

@@ -1,0 +1,389 @@
+{
+  "id": "sc-0029",
+  "domain": "event_planning",
+  "description": "3 users, 6 messages; generator kind=indirect",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Ayşe",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 1300.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! I don't want to spend more than 1300 TL per person."
+        },
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-08",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Tuesday, Dec 8 works best for me."
+        },
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "type": "time",
+          "operator": "gte",
+          "value": "18:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Quick note: I can't come before 18:00."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Night owl who enjoys late evenings.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u2",
+          "type": "accessibility",
+          "operator": "eq",
+          "value": true,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "My cousin is joining and uses a wheelchair, so it has to be accessible."
+        },
+        {
+          "id": "c6",
+          "user_id": "u2",
+          "type": "location",
+          "operator": "eq",
+          "value": "Beyoğlu",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m6",
+          "raw_text": "Quick note: Somewhere in Beyoğlu would be ideal."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Emre",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "activity",
+          "operator": "eq",
+          "value": "rooftop_bar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "I vote for a rooftop bar."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "I vote for a rooftop bar.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Hi all! I don't want to spend more than 1300 TL per person.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "Tuesday, Dec 8 works best for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 3,
+      "text": "Quick note: I can't come before 18:00.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 4,
+      "text": "My cousin is joining and uses a wheelchair, so it has to be accessible.",
+      "timestamp": null
+    },
+    {
+      "id": "m6",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 5,
+      "text": "Quick note: Somewhere in Beyoğlu would be ideal.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "activity",
+      "operator": "eq",
+      "value": "rooftop_bar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "I vote for a rooftop bar."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 1300.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! I don't want to spend more than 1300 TL per person."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-08",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Tuesday, Dec 8 works best for me."
+    },
+    {
+      "id": "c4",
+      "user_id": "u1",
+      "type": "time",
+      "operator": "gte",
+      "value": "18:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Quick note: I can't come before 18:00."
+    },
+    {
+      "id": "c5",
+      "user_id": "u2",
+      "type": "accessibility",
+      "operator": "eq",
+      "value": true,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "My cousin is joining and uses a wheelchair, so it has to be accessible."
+    },
+    {
+      "id": "c6",
+      "user_id": "u2",
+      "type": "location",
+      "operator": "eq",
+      "value": "Beyoğlu",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m6",
+      "raw_text": "Quick note: Somewhere in Beyoğlu would be ideal."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": true,
+      "conflict_type": "indirect",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m1",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m2",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m3",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m4",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m5",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1159417075
+}

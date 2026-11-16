@@ -1,0 +1,157 @@
+{
+  "id": "sc-0028",
+  "domain": "event_planning",
+  "description": "2 users, 3 messages; generator kind=direct",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Can",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 500.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hi all! My budget is 500 TL max."
+        },
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "escape_room",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "I really want to go to an escape room."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Ayşe",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "activity",
+          "operator": "eq",
+          "value": "karaoke",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "I really want to go to karaoke."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "Hi all! My budget is 500 TL max.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "I really want to go to an escape room.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "I really want to go to karaoke.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 500.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hi all! My budget is 500 TL max."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "escape_room",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "I really want to go to an escape room."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "activity",
+      "operator": "eq",
+      "value": "karaoke",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "I really want to go to karaoke."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0028",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0028",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0028",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": true,
+      "conflict_type": "direct",
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1629748727
+}

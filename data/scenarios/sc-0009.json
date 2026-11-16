@@ -1,0 +1,163 @@
+{
+  "id": "sc-0009",
+  "domain": "event_planning",
+  "description": "2 users, 3 messages; generator kind=near_miss",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Derya",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "date",
+          "operator": "in",
+          "value": [
+            "2026-12-07",
+            "2026-12-12"
+          ],
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Either Monday, Dec 7 or Saturday, Dec 12 works for me."
+        },
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "cafe",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hi all! How about a cosy cafe?"
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Ali",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-12",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Can we plan it for Saturday, Dec 12?"
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "Either Monday, Dec 7 or Saturday, Dec 12 works for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Can we plan it for Saturday, Dec 12?",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "Hi all! How about a cosy cafe?",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "date",
+      "operator": "in",
+      "value": [
+        "2026-12-07",
+        "2026-12-12"
+      ],
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Either Monday, Dec 7 or Saturday, Dec 12 works for me."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-12",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Can we plan it for Saturday, Dec 12?"
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "cafe",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hi all! How about a cosy cafe?"
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0009",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0009",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0009",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 978815630
+}

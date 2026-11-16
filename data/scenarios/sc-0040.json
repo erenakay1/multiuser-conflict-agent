@@ -1,0 +1,314 @@
+{
+  "id": "sc-0040",
+  "domain": "event_planning",
+  "description": "4 users, 5 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Can",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "bowling",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Hey everyone. I vote for bowling."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Elif",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "budget",
+          "operator": "lte",
+          "value": 700.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Let's keep it under 700 TL per head."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Onur",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u3",
+          "type": "diet",
+          "operator": "eq",
+          "value": "vegan",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "I eat vegan, so the menu has to have vegan food."
+        },
+        {
+          "id": "c4",
+          "user_id": "u3",
+          "type": "time",
+          "operator": "lte",
+          "value": "21:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "I need to be home early, so no later than 21:00 please."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "Zeynep",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u4",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-04",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hi all! Friday, Dec 4 works best for me."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 0,
+      "text": "Hi all! Friday, Dec 4 works best for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 1,
+      "text": "I eat vegan, so the menu has to have vegan food.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "Let's keep it under 700 TL per head.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 3,
+      "text": "I need to be home early, so no later than 21:00 please.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 4,
+      "text": "Hey everyone. I vote for bowling.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u4",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-04",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hi all! Friday, Dec 4 works best for me."
+    },
+    {
+      "id": "c2",
+      "user_id": "u3",
+      "type": "diet",
+      "operator": "eq",
+      "value": "vegan",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "I eat vegan, so the menu has to have vegan food."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "budget",
+      "operator": "lte",
+      "value": 700.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Let's keep it under 700 TL per head."
+    },
+    {
+      "id": "c4",
+      "user_id": "u3",
+      "type": "time",
+      "operator": "lte",
+      "value": "21:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "I need to be home early, so no later than 21:00 please."
+    },
+    {
+      "id": "c5",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "bowling",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Hey everyone. I vote for bowling."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0040",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1351531223
+}

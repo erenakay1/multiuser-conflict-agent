@@ -1,0 +1,220 @@
+{
+  "id": "sc-0047",
+  "domain": "event_planning",
+  "description": "2 users, 4 messages; generator kind=range",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Burak",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 800.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "I don't want to spend more than 800 TL per person."
+        },
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "type": "time",
+          "operator": "gte",
+          "value": "15:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "I can't come before 15:00."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Can",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u2",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 8,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hi all! Make sure the venue fits at least 8 of us."
+        },
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "time",
+          "operator": "lte",
+          "value": "13:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! I need to be home early, so no later than 13:00 please."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 0,
+      "text": "Hi all! Make sure the venue fits at least 8 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Hi all! I need to be home early, so no later than 13:00 please.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "I don't want to spend more than 800 TL per person.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 3,
+      "text": "I can't come before 15:00.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u2",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 8,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hi all! Make sure the venue fits at least 8 of us."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "time",
+      "operator": "lte",
+      "value": "13:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! I need to be home early, so no later than 13:00 please."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 800.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "I don't want to spend more than 800 TL per person."
+    },
+    {
+      "id": "c4",
+      "user_id": "u1",
+      "type": "time",
+      "operator": "gte",
+      "value": "15:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "I can't come before 15:00."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0047",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0047",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0047",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0047",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0047",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": true,
+      "conflict_type": "range",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0047",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 599707677
+}

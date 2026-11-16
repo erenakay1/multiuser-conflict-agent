@@ -1,0 +1,240 @@
+{
+  "id": "sc-0015",
+  "domain": "event_planning",
+  "description": "4 users, 4 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Derya",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "diet",
+          "operator": "eq",
+          "value": "vegetarian",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! I need a place with vegetarian options."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Mert",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u2",
+          "type": "location",
+          "operator": "eq",
+          "value": "Şişli",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Okay! It should be in Şişli."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Elif",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u3",
+          "type": "activity",
+          "operator": "eq",
+          "value": "bowling",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hey everyone. How about bowling?"
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u4",
+          "type": "time",
+          "operator": "lte",
+          "value": "19:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Okay! I need to be home early, so no later than 19:00 please."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 0,
+      "text": "Okay! I need to be home early, so no later than 19:00 please.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Hi all! I need a place with vegetarian options.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 2,
+      "text": "Hey everyone. How about bowling?",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 3,
+      "text": "Okay! It should be in Şişli.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u4",
+      "type": "time",
+      "operator": "lte",
+      "value": "19:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Okay! I need to be home early, so no later than 19:00 please."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "diet",
+      "operator": "eq",
+      "value": "vegetarian",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! I need a place with vegetarian options."
+    },
+    {
+      "id": "c3",
+      "user_id": "u3",
+      "type": "activity",
+      "operator": "eq",
+      "value": "bowling",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hey everyone. How about bowling?"
+    },
+    {
+      "id": "c4",
+      "user_id": "u2",
+      "type": "location",
+      "operator": "eq",
+      "value": "Şişli",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Okay! It should be in Şişli."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0015",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0015",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0015",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0015",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0015",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0015",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1193887545
+}

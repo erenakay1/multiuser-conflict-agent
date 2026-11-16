@@ -1,0 +1,283 @@
+{
+  "id": "sc-0049",
+  "domain": "event_planning",
+  "description": "2 users, 5 messages; generator kind=revision",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Ali",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "rooftop_bar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Okay! I vote for a rooftop bar."
+        },
+        {
+          "id": "c5",
+          "user_id": "u1",
+          "type": "location",
+          "operator": "eq",
+          "value": "Üsküdar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Actually, change of plans: Somewhere in Üsküdar would be ideal."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Elif",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u2",
+          "type": "budget",
+          "operator": "lte",
+          "value": 1300.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hey everyone. My budget is 1300 TL max."
+        },
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 7,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Make sure the venue fits at least 7 of us."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 0,
+      "text": "Hey everyone. My budget is 1300 TL max.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Make sure the venue fits at least 7 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "Somewhere in Sarıyer would be ideal.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 3,
+      "text": "Okay! I vote for a rooftop bar.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 4,
+      "text": "Actually, change of plans: Somewhere in Üsküdar would be ideal.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u2",
+      "type": "budget",
+      "operator": "lte",
+      "value": 1300.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hey everyone. My budget is 1300 TL max."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 7,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Make sure the venue fits at least 7 of us."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "location",
+      "operator": "eq",
+      "value": "Sarıyer",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Somewhere in Sarıyer would be ideal."
+    },
+    {
+      "id": "c4",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "rooftop_bar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Okay! I vote for a rooftop bar."
+    },
+    {
+      "id": "c5",
+      "user_id": "u1",
+      "type": "location",
+      "operator": "eq",
+      "value": "Üsküdar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Actually, change of plans: Somewhere in Üsküdar would be ideal."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": true,
+      "conflict_type": "revision",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0049",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1128466620
+}

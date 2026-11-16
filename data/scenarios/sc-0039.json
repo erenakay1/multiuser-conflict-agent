@@ -1,0 +1,389 @@
+{
+  "id": "sc-0039",
+  "domain": "event_planning",
+  "description": "3 users, 6 messages; generator kind=near_miss",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Kerem",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "bowling",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! I vote for bowling."
+        },
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "location",
+          "operator": "eq",
+          "value": "Şişli",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hi all! It should be in Şişli."
+        },
+        {
+          "id": "c6",
+          "user_id": "u1",
+          "type": "date",
+          "operator": "neq",
+          "value": "2026-12-06",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m6",
+          "raw_text": "Hi all! I can't make it on Sunday, Dec 6."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Ece",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u2",
+          "type": "budget",
+          "operator": "lte",
+          "value": 800.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "My budget is 800 TL max."
+        },
+        {
+          "id": "c4",
+          "user_id": "u2",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 6,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Quick note: We'll be around 6 people, so the place needs room for 6."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Deniz",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u3",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-04",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Okay! Friday, Dec 4 works best for me."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 0,
+      "text": "My budget is 800 TL max.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Hi all! I vote for bowling.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "Hi all! It should be in Şişli.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 3,
+      "text": "Quick note: We'll be around 6 people, so the place needs room for 6.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 4,
+      "text": "Okay! Friday, Dec 4 works best for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m6",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 5,
+      "text": "Hi all! I can't make it on Sunday, Dec 6.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u2",
+      "type": "budget",
+      "operator": "lte",
+      "value": 800.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "My budget is 800 TL max."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "bowling",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! I vote for bowling."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "location",
+      "operator": "eq",
+      "value": "Şişli",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hi all! It should be in Şişli."
+    },
+    {
+      "id": "c4",
+      "user_id": "u2",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 6,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Quick note: We'll be around 6 people, so the place needs room for 6."
+    },
+    {
+      "id": "c5",
+      "user_id": "u3",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-04",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Okay! Friday, Dec 4 works best for me."
+    },
+    {
+      "id": "c6",
+      "user_id": "u1",
+      "type": "date",
+      "operator": "neq",
+      "value": "2026-12-06",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m6",
+      "raw_text": "Hi all! I can't make it on Sunday, Dec 6."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m1",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m2",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m3",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m4",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0039",
+      "message_ids": [
+        "m5",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 906164396
+}

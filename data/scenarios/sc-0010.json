@@ -1,0 +1,399 @@
+{
+  "id": "sc-0010",
+  "domain": "event_planning",
+  "description": "4 users, 6 messages; generator kind=direct",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Zeynep",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u1",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 11,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Quick note: Make sure the venue fits at least 11 of us."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "activity",
+          "operator": "eq",
+          "value": "karaoke",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hey everyone. How about karaoke?"
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Ali",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "location",
+          "operator": "eq",
+          "value": "Kadıköy",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Somewhere in Kadıköy would be ideal."
+        },
+        {
+          "id": "c4",
+          "user_id": "u3",
+          "type": "accessibility",
+          "operator": "eq",
+          "value": true,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hi all! My cousin is joining and uses a wheelchair, so it has to be accessible."
+        },
+        {
+          "id": "c6",
+          "user_id": "u3",
+          "type": "budget",
+          "operator": "lte",
+          "value": 400.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m6",
+          "raw_text": "Let's keep it under 400 TL per head."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "Onur",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u4",
+          "type": "activity",
+          "operator": "eq",
+          "value": "bowling",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Quick note: How about bowling?"
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "Somewhere in Kadıköy would be ideal.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 1,
+      "text": "Quick note: How about bowling?",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "Hey everyone. How about karaoke?",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 3,
+      "text": "Hi all! My cousin is joining and uses a wheelchair, so it has to be accessible.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 4,
+      "text": "Quick note: Make sure the venue fits at least 11 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m6",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 5,
+      "text": "Let's keep it under 400 TL per head.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "location",
+      "operator": "eq",
+      "value": "Kadıköy",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Somewhere in Kadıköy would be ideal."
+    },
+    {
+      "id": "c2",
+      "user_id": "u4",
+      "type": "activity",
+      "operator": "eq",
+      "value": "bowling",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Quick note: How about bowling?"
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "activity",
+      "operator": "eq",
+      "value": "karaoke",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hey everyone. How about karaoke?"
+    },
+    {
+      "id": "c4",
+      "user_id": "u3",
+      "type": "accessibility",
+      "operator": "eq",
+      "value": true,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hi all! My cousin is joining and uses a wheelchair, so it has to be accessible."
+    },
+    {
+      "id": "c5",
+      "user_id": "u1",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 11,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Quick note: Make sure the venue fits at least 11 of us."
+    },
+    {
+      "id": "c6",
+      "user_id": "u3",
+      "type": "budget",
+      "operator": "lte",
+      "value": 400.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m6",
+      "raw_text": "Let's keep it under 400 TL per head."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m1",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": true,
+      "conflict_type": "direct",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m2",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m3",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m4",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m5",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1242911821
+}

@@ -1,0 +1,157 @@
+{
+  "id": "sc-0006",
+  "domain": "event_planning",
+  "description": "2 users, 3 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Emre",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "time",
+          "operator": "gte",
+          "value": "19:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Let's not start earlier than 19:00, I work until then."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Burak",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "diet",
+          "operator": "eq",
+          "value": "halal",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! I need a place with halal options."
+        },
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 9,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Okay! Make sure the venue fits at least 9 of us."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "Let's not start earlier than 19:00, I work until then.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Hi all! I need a place with halal options.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "Okay! Make sure the venue fits at least 9 of us.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "time",
+      "operator": "gte",
+      "value": "19:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Let's not start earlier than 19:00, I work until then."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "diet",
+      "operator": "eq",
+      "value": "halal",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! I need a place with halal options."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 9,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Okay! Make sure the venue fits at least 9 of us."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0006",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0006",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0006",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 825873196
+}

@@ -1,0 +1,167 @@
+{
+  "id": "sc-0025",
+  "domain": "event_planning",
+  "description": "3 users, 3 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Elif",
+        "rank": 0
+      },
+      "persona": "Parent with an early schedule.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 8,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Okay! Make sure the venue fits at least 8 of us."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Can",
+        "rank": 0
+      },
+      "persona": "Night owl who enjoys late evenings.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "diet",
+          "operator": "eq",
+          "value": "gluten_free",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hey everyone. I eat gluten-free, so the menu has to have gluten-free food."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Burak",
+        "rank": 0
+      },
+      "persona": "Parent with an early schedule.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "activity",
+          "operator": "eq",
+          "value": "bowling",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "I vote for bowling."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "I vote for bowling.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Okay! Make sure the venue fits at least 8 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "Hey everyone. I eat gluten-free, so the menu has to have gluten-free food.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "activity",
+      "operator": "eq",
+      "value": "bowling",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "I vote for bowling."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 8,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Okay! Make sure the venue fits at least 8 of us."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "diet",
+      "operator": "eq",
+      "value": "gluten_free",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hey everyone. I eat gluten-free, so the menu has to have gluten-free food."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0025",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0025",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0025",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1051454923
+}

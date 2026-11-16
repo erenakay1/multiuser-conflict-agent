@@ -1,0 +1,495 @@
+{
+  "id": "sc-0012",
+  "domain": "event_planning",
+  "description": "4 users, 7 messages; generator kind=range",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Deniz",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "karaoke",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "I vote for karaoke."
+        },
+        {
+          "id": "c5",
+          "user_id": "u1",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 9,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Hi all! Make sure the venue fits at least 9 of us."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Emre",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u2",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-06",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Hi all! I'm only free on Sunday, Dec 6."
+        },
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "budget",
+          "operator": "lte",
+          "value": 400.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hey everyone. My budget is 400 TL max."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Selin",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c7",
+          "user_id": "u3",
+          "type": "accessibility",
+          "operator": "eq",
+          "value": true,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m7",
+          "raw_text": "Hey everyone. The venue must be wheelchair accessible."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u4",
+          "type": "diet",
+          "operator": "eq",
+          "value": "gluten_free",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "I eat gluten-free, so the menu has to have gluten-free food."
+        },
+        {
+          "id": "c6",
+          "user_id": "u4",
+          "type": "budget",
+          "operator": "gte",
+          "value": 700.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m6",
+          "raw_text": "I'd rather go somewhere nicer, at least 700 TL per person."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 0,
+      "text": "Hi all! I'm only free on Sunday, Dec 6.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Hey everyone. My budget is 400 TL max.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "I vote for karaoke.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 3,
+      "text": "I eat gluten-free, so the menu has to have gluten-free food.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 4,
+      "text": "Hi all! Make sure the venue fits at least 9 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m6",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 5,
+      "text": "I'd rather go somewhere nicer, at least 700 TL per person.",
+      "timestamp": null
+    },
+    {
+      "id": "m7",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 6,
+      "text": "Hey everyone. The venue must be wheelchair accessible.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u2",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-06",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Hi all! I'm only free on Sunday, Dec 6."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "budget",
+      "operator": "lte",
+      "value": 400.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hey everyone. My budget is 400 TL max."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "karaoke",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "I vote for karaoke."
+    },
+    {
+      "id": "c4",
+      "user_id": "u4",
+      "type": "diet",
+      "operator": "eq",
+      "value": "gluten_free",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "I eat gluten-free, so the menu has to have gluten-free food."
+    },
+    {
+      "id": "c5",
+      "user_id": "u1",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 9,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Hi all! Make sure the venue fits at least 9 of us."
+    },
+    {
+      "id": "c6",
+      "user_id": "u4",
+      "type": "budget",
+      "operator": "gte",
+      "value": 700.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m6",
+      "raw_text": "I'd rather go somewhere nicer, at least 700 TL per person."
+    },
+    {
+      "id": "c7",
+      "user_id": "u3",
+      "type": "accessibility",
+      "operator": "eq",
+      "value": true,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m7",
+      "raw_text": "Hey everyone. The venue must be wheelchair accessible."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m1",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m1",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m2",
+        "m6"
+      ],
+      "has_conflict": true,
+      "conflict_type": "range",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m2",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m3",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m3",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m4",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m4",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m5",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m5",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0012",
+      "message_ids": [
+        "m6",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 999829240
+}
