@@ -1,0 +1,2181 @@
+[
+  {
+    "id": "v001",
+    "name": "Cafe 1",
+    "location": "Sarıyer",
+    "capacity": 57,
+    "price_per_person": 350.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v002",
+    "name": "Dinner 2",
+    "location": "Şişli",
+    "capacity": 45,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v003",
+    "name": "Steakhouse 3",
+    "location": "Şişli",
+    "capacity": 34,
+    "price_per_person": 800.0,
+    "diet_options": [
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v004",
+    "name": "Fine Dining 4",
+    "location": "Beşiktaş",
+    "capacity": 27,
+    "price_per_person": 1650.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v005",
+    "name": "Bowling 5",
+    "location": "Şişli",
+    "capacity": 23,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v006",
+    "name": "Karaoke 6",
+    "location": "Kadıköy",
+    "capacity": 15,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v007",
+    "name": "Escape Room 7",
+    "location": "Üsküdar",
+    "capacity": 5,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v008",
+    "name": "Rooftop Bar 8",
+    "location": "Beyoğlu",
+    "capacity": 20,
+    "price_per_person": 950.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v009",
+    "name": "Cinema 9",
+    "location": "Üsküdar",
+    "capacity": 160,
+    "price_per_person": 250.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v010",
+    "name": "Cafe 10",
+    "location": "Beyoğlu",
+    "capacity": 45,
+    "price_per_person": 200.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v011",
+    "name": "Dinner 11",
+    "location": "Üsküdar",
+    "capacity": 113,
+    "price_per_person": 600.0,
+    "diet_options": [],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v012",
+    "name": "Steakhouse 12",
+    "location": "Üsküdar",
+    "capacity": 33,
+    "price_per_person": 1100.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v013",
+    "name": "Fine Dining 13",
+    "location": "Kadıköy",
+    "capacity": 15,
+    "price_per_person": 2100.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v014",
+    "name": "Bowling 14",
+    "location": "Şişli",
+    "capacity": 13,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v015",
+    "name": "Karaoke 15",
+    "location": "Üsküdar",
+    "capacity": 39,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v016",
+    "name": "Escape Room 16",
+    "location": "Şişli",
+    "capacity": 5,
+    "price_per_person": 500.0,
+    "diet_options": [
+      "vegan",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v017",
+    "name": "Rooftop Bar 17",
+    "location": "Beşiktaş",
+    "capacity": 53,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v018",
+    "name": "Cinema 18",
+    "location": "Şişli",
+    "capacity": 53,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v019",
+    "name": "Cafe 19",
+    "location": "Kadıköy",
+    "capacity": 32,
+    "price_per_person": 200.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v020",
+    "name": "Dinner 20",
+    "location": "Üsküdar",
+    "capacity": 112,
+    "price_per_person": 800.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v021",
+    "name": "Steakhouse 21",
+    "location": "Şişli",
+    "capacity": 45,
+    "price_per_person": 800.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v022",
+    "name": "Fine Dining 22",
+    "location": "Şişli",
+    "capacity": 23,
+    "price_per_person": 2500.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-11"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v023",
+    "name": "Bowling 23",
+    "location": "Sarıyer",
+    "capacity": 17,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v024",
+    "name": "Karaoke 24",
+    "location": "Beşiktaş",
+    "capacity": 33,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v025",
+    "name": "Escape Room 25",
+    "location": "Beşiktaş",
+    "capacity": 5,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegan"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v026",
+    "name": "Rooftop Bar 26",
+    "location": "Kadıköy",
+    "capacity": 119,
+    "price_per_person": 800.0,
+    "diet_options": [
+      "vegan"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v027",
+    "name": "Cinema 27",
+    "location": "Beyoğlu",
+    "capacity": 129,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v028",
+    "name": "Cafe 28",
+    "location": "Kadıköy",
+    "capacity": 18,
+    "price_per_person": 200.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v029",
+    "name": "Dinner 29",
+    "location": "Kadıköy",
+    "capacity": 55,
+    "price_per_person": 500.0,
+    "diet_options": [],
+    "available_dates": [
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v030",
+    "name": "Steakhouse 30",
+    "location": "Üsküdar",
+    "capacity": 26,
+    "price_per_person": 700.0,
+    "diet_options": [
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v031",
+    "name": "Fine Dining 31",
+    "location": "Kadıköy",
+    "capacity": 25,
+    "price_per_person": 950.0,
+    "diet_options": [
+      "vegan",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": true,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v032",
+    "name": "Bowling 32",
+    "location": "Üsküdar",
+    "capacity": 54,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v033",
+    "name": "Karaoke 33",
+    "location": "Sarıyer",
+    "capacity": 21,
+    "price_per_person": 350.0,
+    "diet_options": [
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v034",
+    "name": "Escape Room 34",
+    "location": "Şişli",
+    "capacity": 7,
+    "price_per_person": 650.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v035",
+    "name": "Rooftop Bar 35",
+    "location": "Üsküdar",
+    "capacity": 51,
+    "price_per_person": 1100.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v036",
+    "name": "Cinema 36",
+    "location": "Sarıyer",
+    "capacity": 124,
+    "price_per_person": 350.0,
+    "diet_options": [
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v037",
+    "name": "Cafe 37",
+    "location": "Şişli",
+    "capacity": 54,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v038",
+    "name": "Dinner 38",
+    "location": "Beşiktaş",
+    "capacity": 47,
+    "price_per_person": 450.0,
+    "diet_options": [
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-12"
+    ],
+    "accessible": true,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v039",
+    "name": "Steakhouse 39",
+    "location": "Kadıköy",
+    "capacity": 42,
+    "price_per_person": 1450.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v040",
+    "name": "Fine Dining 40",
+    "location": "Üsküdar",
+    "capacity": 24,
+    "price_per_person": 2300.0,
+    "diet_options": [
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v041",
+    "name": "Bowling 41",
+    "location": "Sarıyer",
+    "capacity": 48,
+    "price_per_person": 450.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v042",
+    "name": "Karaoke 42",
+    "location": "Beşiktaş",
+    "capacity": 10,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v043",
+    "name": "Escape Room 43",
+    "location": "Şişli",
+    "capacity": 4,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v044",
+    "name": "Rooftop Bar 44",
+    "location": "Üsküdar",
+    "capacity": 101,
+    "price_per_person": 1150.0,
+    "diet_options": [
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v045",
+    "name": "Cinema 45",
+    "location": "Üsküdar",
+    "capacity": 151,
+    "price_per_person": 200.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v046",
+    "name": "Cafe 46",
+    "location": "Beyoğlu",
+    "capacity": 25,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v047",
+    "name": "Dinner 47",
+    "location": "Beşiktaş",
+    "capacity": 68,
+    "price_per_person": 700.0,
+    "diet_options": [
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v048",
+    "name": "Steakhouse 48",
+    "location": "Sarıyer",
+    "capacity": 72,
+    "price_per_person": 900.0,
+    "diet_options": [],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v049",
+    "name": "Fine Dining 49",
+    "location": "Üsküdar",
+    "capacity": 22,
+    "price_per_person": 1350.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v050",
+    "name": "Bowling 50",
+    "location": "Şişli",
+    "capacity": 49,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v051",
+    "name": "Karaoke 51",
+    "location": "Kadıköy",
+    "capacity": 33,
+    "price_per_person": 350.0,
+    "diet_options": [
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v052",
+    "name": "Escape Room 52",
+    "location": "Beyoğlu",
+    "capacity": 7,
+    "price_per_person": 600.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v053",
+    "name": "Rooftop Bar 53",
+    "location": "Şişli",
+    "capacity": 101,
+    "price_per_person": 800.0,
+    "diet_options": [
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v054",
+    "name": "Cinema 54",
+    "location": "Sarıyer",
+    "capacity": 32,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v055",
+    "name": "Cafe 55",
+    "location": "Kadıköy",
+    "capacity": 29,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v056",
+    "name": "Dinner 56",
+    "location": "Şişli",
+    "capacity": 105,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v057",
+    "name": "Steakhouse 57",
+    "location": "Sarıyer",
+    "capacity": 43,
+    "price_per_person": 1300.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v058",
+    "name": "Fine Dining 58",
+    "location": "Kadıköy",
+    "capacity": 19,
+    "price_per_person": 2450.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12"
+    ],
+    "accessible": true,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v059",
+    "name": "Bowling 59",
+    "location": "Şişli",
+    "capacity": 12,
+    "price_per_person": 550.0,
+    "diet_options": [],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v060",
+    "name": "Karaoke 60",
+    "location": "Sarıyer",
+    "capacity": 7,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v061",
+    "name": "Escape Room 61",
+    "location": "Beşiktaş",
+    "capacity": 8,
+    "price_per_person": 500.0,
+    "diet_options": [
+      "vegan",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v062",
+    "name": "Rooftop Bar 62",
+    "location": "Şişli",
+    "capacity": 85,
+    "price_per_person": 950.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v063",
+    "name": "Cinema 63",
+    "location": "Kadıköy",
+    "capacity": 40,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v064",
+    "name": "Cafe 64",
+    "location": "Sarıyer",
+    "capacity": 23,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v065",
+    "name": "Dinner 65",
+    "location": "Sarıyer",
+    "capacity": 57,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10"
+    ],
+    "accessible": true,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v066",
+    "name": "Steakhouse 66",
+    "location": "Sarıyer",
+    "capacity": 71,
+    "price_per_person": 1050.0,
+    "diet_options": [
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v067",
+    "name": "Fine Dining 67",
+    "location": "Kadıköy",
+    "capacity": 15,
+    "price_per_person": 1750.0,
+    "diet_options": [],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v068",
+    "name": "Bowling 68",
+    "location": "Sarıyer",
+    "capacity": 30,
+    "price_per_person": 600.0,
+    "diet_options": [
+      "vegetarian",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v069",
+    "name": "Karaoke 69",
+    "location": "Sarıyer",
+    "capacity": 37,
+    "price_per_person": 700.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v070",
+    "name": "Escape Room 70",
+    "location": "Beyoğlu",
+    "capacity": 8,
+    "price_per_person": 700.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v071",
+    "name": "Rooftop Bar 71",
+    "location": "Beşiktaş",
+    "capacity": 99,
+    "price_per_person": 850.0,
+    "diet_options": [
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v072",
+    "name": "Cinema 72",
+    "location": "Şişli",
+    "capacity": 109,
+    "price_per_person": 250.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-12"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v073",
+    "name": "Cafe 73",
+    "location": "Beyoğlu",
+    "capacity": 30,
+    "price_per_person": 400.0,
+    "diet_options": [
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v074",
+    "name": "Dinner 74",
+    "location": "Beyoğlu",
+    "capacity": 74,
+    "price_per_person": 600.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v075",
+    "name": "Steakhouse 75",
+    "location": "Beyoğlu",
+    "capacity": 32,
+    "price_per_person": 750.0,
+    "diet_options": [
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v076",
+    "name": "Fine Dining 76",
+    "location": "Şişli",
+    "capacity": 18,
+    "price_per_person": 1350.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v077",
+    "name": "Bowling 77",
+    "location": "Sarıyer",
+    "capacity": 53,
+    "price_per_person": 500.0,
+    "diet_options": [
+      "vegan"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-12"
+    ],
+    "accessible": false,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v078",
+    "name": "Karaoke 78",
+    "location": "Sarıyer",
+    "capacity": 39,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11"
+    ],
+    "accessible": true,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v079",
+    "name": "Escape Room 79",
+    "location": "Sarıyer",
+    "capacity": 7,
+    "price_per_person": 450.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v080",
+    "name": "Rooftop Bar 80",
+    "location": "Beyoğlu",
+    "capacity": 37,
+    "price_per_person": 1150.0,
+    "diet_options": [
+      "vegan"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v081",
+    "name": "Cinema 81",
+    "location": "Üsküdar",
+    "capacity": 109,
+    "price_per_person": 200.0,
+    "diet_options": [
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  },
+  {
+    "id": "v082",
+    "name": "Cafe 82",
+    "location": "Sarıyer",
+    "capacity": 40,
+    "price_per_person": 300.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "cafe"
+    ]
+  },
+  {
+    "id": "v083",
+    "name": "Dinner 83",
+    "location": "Üsküdar",
+    "capacity": 86,
+    "price_per_person": 700.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "dinner"
+    ]
+  },
+  {
+    "id": "v084",
+    "name": "Steakhouse 84",
+    "location": "Beyoğlu",
+    "capacity": 12,
+    "price_per_person": 1300.0,
+    "diet_options": [],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "steakhouse"
+    ]
+  },
+  {
+    "id": "v085",
+    "name": "Fine Dining 85",
+    "location": "Sarıyer",
+    "capacity": 15,
+    "price_per_person": 2350.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-10",
+      "2026-12-11"
+    ],
+    "accessible": true,
+    "tags": [
+      "fine_dining"
+    ]
+  },
+  {
+    "id": "v086",
+    "name": "Bowling 86",
+    "location": "Kadıköy",
+    "capacity": 58,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10"
+    ],
+    "accessible": true,
+    "tags": [
+      "bowling"
+    ]
+  },
+  {
+    "id": "v087",
+    "name": "Karaoke 87",
+    "location": "Beyoğlu",
+    "capacity": 23,
+    "price_per_person": 350.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "karaoke"
+    ]
+  },
+  {
+    "id": "v088",
+    "name": "Escape Room 88",
+    "location": "Şişli",
+    "capacity": 8,
+    "price_per_person": 550.0,
+    "diet_options": [
+      "vegan",
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "escape_room"
+    ]
+  },
+  {
+    "id": "v089",
+    "name": "Rooftop Bar 89",
+    "location": "Sarıyer",
+    "capacity": 66,
+    "price_per_person": 750.0,
+    "diet_options": [
+      "halal",
+      "gluten_free"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-09",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13"
+    ],
+    "accessible": false,
+    "tags": [
+      "rooftop_bar"
+    ]
+  },
+  {
+    "id": "v090",
+    "name": "Cinema 90",
+    "location": "Üsküdar",
+    "capacity": 163,
+    "price_per_person": 200.0,
+    "diet_options": [
+      "vegetarian",
+      "halal"
+    ],
+    "available_dates": [
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-13"
+    ],
+    "accessible": true,
+    "tags": [
+      "cinema"
+    ]
+  }
+]

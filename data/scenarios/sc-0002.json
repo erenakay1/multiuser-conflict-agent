@@ -1,0 +1,219 @@
+{
+  "id": "sc-0002",
+  "domain": "event_planning",
+  "description": "3 users, 4 messages; generator kind=revision",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Naz",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-06",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Update from my side: Sunday, Dec 6 works best for me."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Deniz",
+        "rank": 0
+      },
+      "persona": "Night owl who enjoys late evenings.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u2",
+          "type": "time",
+          "operator": "gte",
+          "value": "19:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hey everyone. I can't come before 19:00."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Emre",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "activity",
+          "operator": "eq",
+          "value": "rooftop_bar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Okay! I really want to go to a rooftop bar."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "Okay! I really want to go to a rooftop bar.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Can we plan it for Saturday, Dec 5?",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "Update from my side: Sunday, Dec 6 works best for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 3,
+      "text": "Hey everyone. I can't come before 19:00.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "activity",
+      "operator": "eq",
+      "value": "rooftop_bar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Okay! I really want to go to a rooftop bar."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-05",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Can we plan it for Saturday, Dec 5?"
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-06",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Update from my side: Sunday, Dec 6 works best for me."
+    },
+    {
+      "id": "c4",
+      "user_id": "u2",
+      "type": "time",
+      "operator": "gte",
+      "value": "19:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hey everyone. I can't come before 19:00."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0002",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0002",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0002",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0002",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": true,
+      "conflict_type": "revision",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0002",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0002",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1625792787
+}

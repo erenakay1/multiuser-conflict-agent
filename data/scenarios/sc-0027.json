@@ -1,0 +1,294 @@
+{
+  "id": "sc-0027",
+  "domain": "event_planning",
+  "description": "2 users, 5 messages; generator kind=near_miss",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Onur",
+        "rank": 0
+      },
+      "persona": "Parent with an early schedule.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "bowling",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "How about bowling?"
+        },
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "time",
+          "operator": "gte",
+          "value": "16:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hey everyone. I can't come before 16:00."
+        },
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 700.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hey everyone. Let's keep it under 700 TL per head."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Naz",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 6,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Okay! Make sure the venue fits at least 6 of us."
+        },
+        {
+          "id": "c5",
+          "user_id": "u2",
+          "type": "budget",
+          "operator": "lte",
+          "value": 500.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "I don't want to spend more than 500 TL per person."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "How about bowling?",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Hey everyone. I can't come before 16:00.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "Okay! Make sure the venue fits at least 6 of us.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 3,
+      "text": "Hey everyone. Let's keep it under 700 TL per head.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 4,
+      "text": "I don't want to spend more than 500 TL per person.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "bowling",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "How about bowling?"
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "time",
+      "operator": "gte",
+      "value": "16:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hey everyone. I can't come before 16:00."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 6,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Okay! Make sure the venue fits at least 6 of us."
+    },
+    {
+      "id": "c4",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 700.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hey everyone. Let's keep it under 700 TL per head."
+    },
+    {
+      "id": "c5",
+      "user_id": "u2",
+      "type": "budget",
+      "operator": "lte",
+      "value": 500.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "I don't want to spend more than 500 TL per person."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0027",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1985392498
+}

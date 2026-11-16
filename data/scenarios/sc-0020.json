@@ -1,0 +1,314 @@
+{
+  "id": "sc-0020",
+  "domain": "event_planning",
+  "description": "4 users, 5 messages; generator kind=direct",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Kerem",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u1",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-11",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Quick note: Let's do it on Friday, Dec 11."
+        },
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 300.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hi all! My budget is 300 TL max."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Mert",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "diet",
+          "operator": "eq",
+          "value": "vegan",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "I eat vegan, so the menu has to have vegan food."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Zeynep",
+        "rank": 0
+      },
+      "persona": "Parent with an early schedule.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "time",
+          "operator": "eq",
+          "value": "13:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Quick note: Let's start at 13:00."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u4",
+          "type": "time",
+          "operator": "eq",
+          "value": "18:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Hi all! 18:00 would be the perfect start time."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "Quick note: Let's start at 13:00.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 1,
+      "text": "Quick note: Let's do it on Friday, Dec 11.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "I eat vegan, so the menu has to have vegan food.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 3,
+      "text": "Hi all! My budget is 300 TL max.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 4,
+      "text": "Hi all! 18:00 would be the perfect start time.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "time",
+      "operator": "eq",
+      "value": "13:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Quick note: Let's start at 13:00."
+    },
+    {
+      "id": "c2",
+      "user_id": "u1",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-11",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Quick note: Let's do it on Friday, Dec 11."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "diet",
+      "operator": "eq",
+      "value": "vegan",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "I eat vegan, so the menu has to have vegan food."
+    },
+    {
+      "id": "c4",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 300.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hi all! My budget is 300 TL max."
+    },
+    {
+      "id": "c5",
+      "user_id": "u4",
+      "type": "time",
+      "operator": "eq",
+      "value": "18:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Hi all! 18:00 would be the perfect start time."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": true,
+      "conflict_type": "direct",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1525876051
+}

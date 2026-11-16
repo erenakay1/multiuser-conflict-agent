@@ -1,0 +1,130 @@
+{
+  "annotators": [
+    "yusuf",
+    "generator"
+  ],
+  "decided_by": [
+    "eren",
+    "yusuf"
+  ],
+  "date": "2026-11-16",
+  "decisions": [
+    {
+      "scenario_id": "sc-0010",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "decision": "direct",
+      "labels_before": {
+        "yusuf": "indirect",
+        "generator": "direct"
+      },
+      "rationale": "Same attribute (activity type) with different values -> direct; guideline v2 will clarify that 'attribute' means activity/date/location etc."
+    },
+    {
+      "scenario_id": "sc-0013",
+      "message_ids": [
+        "m5",
+        "m6"
+      ],
+      "decision": "direct",
+      "labels_before": {
+        "yusuf": "indirect",
+        "generator": "direct"
+      },
+      "rationale": "Same attribute (activity type) with different values -> direct; guideline v2 will clarify that 'attribute' means activity/date/location etc."
+    },
+    {
+      "scenario_id": "sc-0017",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "decision": "indirect",
+      "labels_before": {
+        "yusuf": "none",
+        "generator": "indirect"
+      },
+      "rationale": "Environment indirect rule 2 (fine dining >= 900 TL) applies; missed in first pass."
+    },
+    {
+      "scenario_id": "sc-0020",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "decision": "direct",
+      "labels_before": {
+        "yusuf": "none",
+        "generator": "direct"
+      },
+      "rationale": "Same attribute (start time), different values -> direct; missed in first pass."
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "decision": "indirect",
+      "labels_before": {
+        "yusuf": "none",
+        "generator": "indirect"
+      },
+      "rationale": "Environment indirect rule 3 (rooftop bar not accessible) applies; missed in first pass."
+    },
+    {
+      "scenario_id": "sc-0028",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "decision": "direct",
+      "labels_before": {
+        "yusuf": "indirect",
+        "generator": "direct"
+      },
+      "rationale": "Same attribute (activity type) with different values -> direct; guideline v2 will clarify that 'attribute' means activity/date/location etc."
+    },
+    {
+      "scenario_id": "sc-0029",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "decision": "indirect",
+      "labels_before": {
+        "yusuf": "none",
+        "generator": "indirect"
+      },
+      "rationale": "Environment indirect rule 3 (rooftop bar not accessible) applies; missed in first pass."
+    },
+    {
+      "scenario_id": "sc-0038",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "decision": "indirect",
+      "labels_before": {
+        "yusuf": "none",
+        "generator": "indirect"
+      },
+      "rationale": "Environment indirect rule 2 (fine dining >= 900 TL) applies; missed in first pass."
+    },
+    {
+      "scenario_id": "sc-0045",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "decision": "indirect",
+      "labels_before": {
+        "yusuf": "none",
+        "generator": "indirect"
+      },
+      "rationale": "Environment indirect rule 4 (escape room <= 8 people) applies; missed in first pass."
+    }
+  ]
+}

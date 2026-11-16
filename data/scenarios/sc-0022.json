@@ -1,0 +1,314 @@
+{
+  "id": "sc-0022",
+  "domain": "event_planning",
+  "description": "4 users, 5 messages; generator kind=indirect",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Burak",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 1400.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Quick note: I don't want to spend more than 1400 TL per person."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Zeynep",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u2",
+          "type": "accessibility",
+          "operator": "eq",
+          "value": true,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "The venue must be wheelchair accessible."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Derya",
+        "rank": 0
+      },
+      "persona": "Night owl who enjoys late evenings.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "activity",
+          "operator": "eq",
+          "value": "rooftop_bar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "I really want to go to a rooftop bar."
+        },
+        {
+          "id": "c2",
+          "user_id": "u3",
+          "type": "diet",
+          "operator": "eq",
+          "value": "vegan",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Hi all! I eat vegan, so the menu has to have vegan food."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "Ece",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u4",
+          "type": "location",
+          "operator": "eq",
+          "value": "Beyoğlu",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "It should be in Beyoğlu."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "I really want to go to a rooftop bar.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 1,
+      "text": "Hi all! I eat vegan, so the menu has to have vegan food.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 2,
+      "text": "The venue must be wheelchair accessible.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 3,
+      "text": "It should be in Beyoğlu.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 4,
+      "text": "Quick note: I don't want to spend more than 1400 TL per person.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "activity",
+      "operator": "eq",
+      "value": "rooftop_bar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "I really want to go to a rooftop bar."
+    },
+    {
+      "id": "c2",
+      "user_id": "u3",
+      "type": "diet",
+      "operator": "eq",
+      "value": "vegan",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Hi all! I eat vegan, so the menu has to have vegan food."
+    },
+    {
+      "id": "c3",
+      "user_id": "u2",
+      "type": "accessibility",
+      "operator": "eq",
+      "value": true,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "The venue must be wheelchair accessible."
+    },
+    {
+      "id": "c4",
+      "user_id": "u4",
+      "type": "location",
+      "operator": "eq",
+      "value": "Beyoğlu",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "It should be in Beyoğlu."
+    },
+    {
+      "id": "c5",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 1400.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Quick note: I don't want to spend more than 1400 TL per person."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": true,
+      "conflict_type": "indirect",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0022",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1146660997
+}

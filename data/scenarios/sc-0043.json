@@ -1,0 +1,304 @@
+{
+  "id": "sc-0043",
+  "domain": "event_planning",
+  "description": "3 users, 5 messages; generator kind=indirect",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Can",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "steakhouse",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "I vote for a steakhouse."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Kerem",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u2",
+          "type": "date",
+          "operator": "eq",
+          "value": "2026-12-13",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hi all! Sunday, Dec 13 works best for me."
+        },
+        {
+          "id": "c5",
+          "user_id": "u2",
+          "type": "diet",
+          "operator": "eq",
+          "value": "vegan",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Okay! I eat vegan, so the menu has to have vegan food."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Onur",
+        "rank": 0
+      },
+      "persona": "Foodie who cares most about the venue.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u3",
+          "type": "time",
+          "operator": "lte",
+          "value": "16:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "It should start by 16:00 at the latest."
+        },
+        {
+          "id": "c2",
+          "user_id": "u3",
+          "type": "accessibility",
+          "operator": "eq",
+          "value": true,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Okay! My cousin is joining and uses a wheelchair, so it has to be accessible."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 0,
+      "text": "It should start by 16:00 at the latest.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 1,
+      "text": "Okay! My cousin is joining and uses a wheelchair, so it has to be accessible.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "I vote for a steakhouse.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 3,
+      "text": "Hi all! Sunday, Dec 13 works best for me.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 4,
+      "text": "Okay! I eat vegan, so the menu has to have vegan food.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u3",
+      "type": "time",
+      "operator": "lte",
+      "value": "16:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "It should start by 16:00 at the latest."
+    },
+    {
+      "id": "c2",
+      "user_id": "u3",
+      "type": "accessibility",
+      "operator": "eq",
+      "value": true,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Okay! My cousin is joining and uses a wheelchair, so it has to be accessible."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "steakhouse",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "I vote for a steakhouse."
+    },
+    {
+      "id": "c4",
+      "user_id": "u2",
+      "type": "date",
+      "operator": "eq",
+      "value": "2026-12-13",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hi all! Sunday, Dec 13 works best for me."
+    },
+    {
+      "id": "c5",
+      "user_id": "u2",
+      "type": "diet",
+      "operator": "eq",
+      "value": "vegan",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Okay! I eat vegan, so the menu has to have vegan food."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": true,
+      "conflict_type": "indirect",
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0043",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1699226064
+}

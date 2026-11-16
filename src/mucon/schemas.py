@@ -53,15 +53,22 @@ class Strength(StrEnum):
 
 
 class ConflictType(StrEnum):
-    """Çakışma türleri (taslak).
+    """Çakışma türleri. Etiketleme kılavuzu: docs/annotation-guideline.md.
 
-    TODO(H2): Yusuf'un çakışma türleri ve etiketleme kılavuzuyla senkronize et.
+    İki kısıt (mesaj) **çakışır** ⇔ ikisini birden sağlayan hiçbir plan yoktur.
+    - DIRECT:   aynı öznitelik, ayrık kategorik değerler (cuma vs cumartesi; Kadıköy vs ≠Kadıköy).
+    - RANGE:    aynı sayısal/sıralı öznitelik, aralıklar kesişmiyor (bütçe ≤300 vs ≥800;
+                saat ≤18:00 vs ≥20:00).
+    - INDIRECT: farklı öznitelikler; çakışma ortam bilgisinden doğar (vegan + steakhouse,
+                tekerlekli sandalye erişimi + rooftop). Ortam kuralları `env/event_planning.py`.
+    - REVISION: aynı kullanıcı, aynı öznitelikte önceki talimatını değiştiriyor
+                (kullanıcılar arası değil; stratejiler bunu çakışma değil güncelleme sayabilir).
     """
 
-    DIRECT = "direct"  # aynı öznitelik, uyuşmaz değer (cuma vs cumartesi)
-    RANGE = "range"  # sayısal aralıklar kesişmiyor (bütçe ≤500 vs ≥800)
-    INDIRECT = "indirect"  # farklı öznitelikler, ortam üzerinden çakışıyor (vegan + steakhouse)
-    REVISION = "revision"  # aynı kullanıcının önceki talimatıyla çelişki
+    DIRECT = "direct"
+    RANGE = "range"
+    INDIRECT = "indirect"
+    REVISION = "revision"
 
 
 class MessageRole(StrEnum):
@@ -171,6 +178,27 @@ class ConflictLabel(_Model):
         return self
 
 
+class AdjudicationDecision(_Model):
+    """İki etiketleyicinin uyuşmadığı bir mesaj çifti için verilen nihai karar."""
+
+    scenario_id: str
+    message_ids: list[str] = Field(min_length=2, max_length=2)
+    decision: ConflictType | None = Field(description="None = çakışma yok")
+    labels_before: dict[str, str] = Field(
+        default_factory=dict, description="etiketleyici → etiketi ('none' = çakışma yok)"
+    )
+    rationale: str
+
+
+class AdjudicationRecord(_Model):
+    """Uzlaştırma oturumu: `data/labels/adjudication.json`."""
+
+    annotators: list[str] = Field(min_length=2, max_length=2)
+    decided_by: list[str] = Field(min_length=1)
+    date: str
+    decisions: list[AdjudicationDecision] = Field(default_factory=list)
+
+
 class Scenario(_Model):
     """Bir grup etkinlik planlama senaryosu (simülasyon girdisi)."""
 
@@ -181,6 +209,12 @@ class Scenario(_Model):
     scripted_messages: list[Message] = Field(
         default_factory=list, description="Dedektör değerlendirmesi için sabit diyalog (opsiyonel)"
     )
+    gold_constraints: list[Constraint] = Field(
+        default_factory=list,
+        description="Her mesajdan çıkarılması gereken kısıtlar (kısıt çıkarıcının altın "
+        "standardı). `hidden_preferences`'tan farkı: revize edilmiş eski talimatlar da "
+        "burada yer alır.",
+    )
     gold_labels: list[ConflictLabel] = Field(default_factory=list)
     seed: int | None = None
 
@@ -190,6 +224,27 @@ class Scenario(_Model):
         if len(ids) != len(set(ids)):
             raise ValueError("Senaryodaki kullanıcı id'leri benzersiz olmalı")
         return self
+
+    def user_messages(self) -> list[Message]:
+        """Yalnızca kullanıcı mesajları, sıra (turn) düzeninde."""
+        return sorted(
+            (m for m in self.scripted_messages if m.role == MessageRole.USER), key=lambda m: m.turn
+        )
+
+
+class ExtractedConstraint(_Model):
+    """Kısıt çıkarıcının LLM'den beklediği tek kısıt (id ve kullanıcı bilgisini kod ekler)."""
+
+    type: ConstraintType
+    operator: Operator = Operator.EQ
+    value: ConstraintValue
+    strength: Strength = Strength.HARD
+
+
+class ExtractionResult(_Model):
+    """Kısıt çıkarıcının yapılandırılmış LLM çıktısı."""
+
+    constraints: list[ExtractedConstraint] = Field(default_factory=list)
 
 
 class Session(_Model):

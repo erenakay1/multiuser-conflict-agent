@@ -1,0 +1,167 @@
+{
+  "id": "sc-0024",
+  "domain": "event_planning",
+  "description": "3 users, 3 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Ece",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 2500.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "I don't want to spend more than 2500 TL per person."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "İrem",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "activity",
+          "operator": "eq",
+          "value": "fine_dining",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Quick note: How about a fine-dining restaurant?"
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Mert",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u3",
+          "type": "time",
+          "operator": "lte",
+          "value": "18:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hi all! I need to be home early, so no later than 18:00 please."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "I don't want to spend more than 2500 TL per person.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Quick note: How about a fine-dining restaurant?",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 2,
+      "text": "Hi all! I need to be home early, so no later than 18:00 please.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 2500.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "I don't want to spend more than 2500 TL per person."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "activity",
+      "operator": "eq",
+      "value": "fine_dining",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Quick note: How about a fine-dining restaurant?"
+    },
+    {
+      "id": "c3",
+      "user_id": "u3",
+      "type": "time",
+      "operator": "lte",
+      "value": "18:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hi all! I need to be home early, so no later than 18:00 please."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0024",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0024",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0024",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 735034881
+}

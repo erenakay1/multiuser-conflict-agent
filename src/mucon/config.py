@@ -5,9 +5,12 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
+import yaml
+from dotenv import dotenv_values
 from pydantic import BaseModel, Field, SecretStr
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -36,10 +39,23 @@ class PathSettings(BaseModel):
     venue_db: Path = Path("data/processed/venues.json")
 
 
+class GenerationSettings(BaseModel):
+    """Senaryo üreteci (sim/scenario_generator.py) ayarları."""
+
+    n_venues: int = Field(90, gt=0)
+    n_users_min: int = Field(2, ge=2)
+    n_users_max: int = Field(4, ge=2)
+    conflict_rate: float = Field(0.5, ge=0.0, le=1.0)
+    near_miss_rate: float = Field(0.5, ge=0.0, le=1.0)
+    window_start: str = "2026-12-04"
+    window_days: int = Field(10, gt=1)
+
+
 class AppConfig(BaseModel):
     seed: int = 42
     llm: LLMSettings = Field(default_factory=LLMSettings)
     paths: PathSettings = Field(default_factory=PathSettings)
+    generation: GenerationSettings = Field(default_factory=GenerationSettings)
 
 
 class ExperimentConfig(BaseModel):
@@ -54,13 +70,50 @@ class ExperimentConfig(BaseModel):
     use_experiment_model: bool = False
 
 
+DEFAULT_ENV_PATH = PROJECT_ROOT / ".env"
+
+# Ortam değişkeni → LLMSettings alanı
+ENV_OVERRIDES: dict[str, str] = {
+    "LLM_PROVIDER": "provider",
+    "DEV_MODEL": "dev_model",
+    "EXPERIMENT_MODEL": "experiment_model",
+    "OLLAMA_BASE_URL": "ollama_base_url",
+    "OPENAI_API_KEY": "openai_api_key",
+}
+
+
+def _read_yaml(path: Path) -> dict[str, Any]:
+    with path.open(encoding="utf-8") as f:
+        data = yaml.safe_load(f) or {}
+    if not isinstance(data, dict):
+        raise ValueError(f"{path}: YAML kökü bir sözlük olmalı")
+    return data
+
+
+def _env_values(env_file: Path | None) -> dict[str, str]:
+    """`.env` dosyası + gerçek ortam değişkenleri (ikincisi önceliklidir). os.environ değişmez."""
+    values: dict[str, str] = {}
+    if env_file is not None and env_file.exists():
+        values.update({k: v for k, v in dotenv_values(env_file).items() if v is not None})
+    values.update({k: os.environ[k] for k in ENV_OVERRIDES if k in os.environ})
+    return values
+
+
 def load_config(path: Path = DEFAULT_CONFIG_PATH, env_file: Path | None = None) -> AppConfig:
-    """YAML dosyasını okuyup .env/ortam değişkenleriyle ezerek AppConfig döndürür."""
-    # TODO(H3): yaml.safe_load + dotenv.load_dotenv + LLM_PROVIDER/DEV_MODEL/... override
-    raise NotImplementedError
+    """YAML dosyasını okuyup .env/ortam değişkenleriyle ezerek AppConfig döndürür.
+
+    `env_file` verilmezse proje kökündeki `.env` (varsa) kullanılır. Boş değerler yok sayılır.
+    """
+    data = _read_yaml(path)
+    llm = dict(data.get("llm") or {})
+    env = _env_values(env_file if env_file is not None else DEFAULT_ENV_PATH)
+    for var, field in ENV_OVERRIDES.items():
+        if env.get(var):
+            llm[field] = env[var]
+    data["llm"] = llm
+    return AppConfig.model_validate(data)
 
 
 def load_experiment_config(path: Path) -> ExperimentConfig:
     """configs/experiments/*.yaml dosyasını ExperimentConfig olarak yükler."""
-    # TODO(H3): yaml okuma + doğrulama
-    raise NotImplementedError
+    return ExperimentConfig.model_validate(_read_yaml(path))

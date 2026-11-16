@@ -1,0 +1,495 @@
+{
+  "id": "sc-0026",
+  "domain": "event_planning",
+  "description": "4 users, 7 messages; generator kind=near_miss",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Emre",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 1000.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "My budget is 1000 TL max."
+        },
+        {
+          "id": "c3",
+          "user_id": "u1",
+          "type": "activity",
+          "operator": "eq",
+          "value": "fine_dining",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "I vote for a fine-dining restaurant."
+        },
+        {
+          "id": "c4",
+          "user_id": "u1",
+          "type": "location",
+          "operator": "eq",
+          "value": "Kadıköy",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Hi all! It should be in Kadıköy."
+        },
+        {
+          "id": "c7",
+          "user_id": "u1",
+          "type": "capacity",
+          "operator": "gte",
+          "value": 4,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m7",
+          "raw_text": "We'll be around 4 people, so the place needs room for 4."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Onur",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "diet",
+          "operator": "eq",
+          "value": "halal",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Quick note: I need a place with halal options."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Kerem",
+        "rank": 0
+      },
+      "persona": "Organised planner who likes to decide early.",
+      "hidden_preferences": [
+        {
+          "id": "c5",
+          "user_id": "u3",
+          "type": "time",
+          "operator": "gte",
+          "value": "12:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m5",
+          "raw_text": "Let's not start earlier than 12:00, I work until then."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "Zeynep",
+        "rank": 0
+      },
+      "persona": "Lives far from the city centre and hates long commutes.",
+      "hidden_preferences": [
+        {
+          "id": "c6",
+          "user_id": "u4",
+          "type": "budget",
+          "operator": "lte",
+          "value": 1500.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m6",
+          "raw_text": "I don't want to spend more than 1500 TL per person."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "My budget is 1000 TL max.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Quick note: I need a place with halal options.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 2,
+      "text": "I vote for a fine-dining restaurant.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 3,
+      "text": "Hi all! It should be in Kadıköy.",
+      "timestamp": null
+    },
+    {
+      "id": "m5",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 4,
+      "text": "Let's not start earlier than 12:00, I work until then.",
+      "timestamp": null
+    },
+    {
+      "id": "m6",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 5,
+      "text": "I don't want to spend more than 1500 TL per person.",
+      "timestamp": null
+    },
+    {
+      "id": "m7",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 6,
+      "text": "We'll be around 4 people, so the place needs room for 4.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 1000.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "My budget is 1000 TL max."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "diet",
+      "operator": "eq",
+      "value": "halal",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Quick note: I need a place with halal options."
+    },
+    {
+      "id": "c3",
+      "user_id": "u1",
+      "type": "activity",
+      "operator": "eq",
+      "value": "fine_dining",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "I vote for a fine-dining restaurant."
+    },
+    {
+      "id": "c4",
+      "user_id": "u1",
+      "type": "location",
+      "operator": "eq",
+      "value": "Kadıköy",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Hi all! It should be in Kadıköy."
+    },
+    {
+      "id": "c5",
+      "user_id": "u3",
+      "type": "time",
+      "operator": "gte",
+      "value": "12:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m5",
+      "raw_text": "Let's not start earlier than 12:00, I work until then."
+    },
+    {
+      "id": "c6",
+      "user_id": "u4",
+      "type": "budget",
+      "operator": "lte",
+      "value": 1500.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m6",
+      "raw_text": "I don't want to spend more than 1500 TL per person."
+    },
+    {
+      "id": "c7",
+      "user_id": "u1",
+      "type": "capacity",
+      "operator": "gte",
+      "value": 4,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m7",
+      "raw_text": "We'll be around 4 people, so the place needs room for 4."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m1",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m1",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m1",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m2",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m2",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m2",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m3",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m3",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m3",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m4",
+        "m5"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m4",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m4",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m5",
+        "m6"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m5",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0026",
+      "message_ids": [
+        "m6",
+        "m7"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 701808367
+}

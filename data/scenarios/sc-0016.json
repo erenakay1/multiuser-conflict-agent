@@ -1,0 +1,240 @@
+{
+  "id": "sc-0016",
+  "domain": "event_planning",
+  "description": "4 users, 4 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Derya",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "budget",
+          "operator": "lte",
+          "value": 700.0,
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "Let's keep it under 700 TL per head."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Ayşe",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "activity",
+          "operator": "eq",
+          "value": "escape_room",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "I vote for an escape room."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u3",
+        "name": "Emre",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c3",
+          "user_id": "u3",
+          "type": "location",
+          "operator": "eq",
+          "value": "Üsküdar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m3",
+          "raw_text": "Hi all! Somewhere in Üsküdar would be ideal."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u4",
+        "name": "Naz",
+        "rank": 0
+      },
+      "persona": "Works long weekday hours and prefers relaxed plans.",
+      "hidden_preferences": [
+        {
+          "id": "c4",
+          "user_id": "u4",
+          "type": "time",
+          "operator": "gte",
+          "value": "12:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m4",
+          "raw_text": "Quick note: Let's not start earlier than 12:00, I work until then."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "Let's keep it under 700 TL per head.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "I vote for an escape room.",
+      "timestamp": null
+    },
+    {
+      "id": "m3",
+      "role": "user",
+      "user_id": "u3",
+      "turn": 2,
+      "text": "Hi all! Somewhere in Üsküdar would be ideal.",
+      "timestamp": null
+    },
+    {
+      "id": "m4",
+      "role": "user",
+      "user_id": "u4",
+      "turn": 3,
+      "text": "Quick note: Let's not start earlier than 12:00, I work until then.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "budget",
+      "operator": "lte",
+      "value": 700.0,
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "Let's keep it under 700 TL per head."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "activity",
+      "operator": "eq",
+      "value": "escape_room",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "I vote for an escape room."
+    },
+    {
+      "id": "c3",
+      "user_id": "u3",
+      "type": "location",
+      "operator": "eq",
+      "value": "Üsküdar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m3",
+      "raw_text": "Hi all! Somewhere in Üsküdar would be ideal."
+    },
+    {
+      "id": "c4",
+      "user_id": "u4",
+      "type": "time",
+      "operator": "gte",
+      "value": "12:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m4",
+      "raw_text": "Quick note: Let's not start earlier than 12:00, I work until then."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0016",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0016",
+      "message_ids": [
+        "m1",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0016",
+      "message_ids": [
+        "m1",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0016",
+      "message_ids": [
+        "m2",
+        "m3"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0016",
+      "message_ids": [
+        "m2",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    },
+    {
+      "scenario_id": "sc-0016",
+      "message_ids": [
+        "m3",
+        "m4"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 1947382419
+}

@@ -1,0 +1,105 @@
+{
+  "id": "sc-0030",
+  "domain": "event_planning",
+  "description": "2 users, 2 messages; generator kind=none",
+  "personas": [
+    {
+      "user": {
+        "id": "u1",
+        "name": "Mert",
+        "rank": 0
+      },
+      "persona": "Easy-going, but has a few firm requirements.",
+      "hidden_preferences": [
+        {
+          "id": "c1",
+          "user_id": "u1",
+          "type": "time",
+          "operator": "lte",
+          "value": "19:00",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m1",
+          "raw_text": "It should start by 19:00 at the latest."
+        }
+      ]
+    },
+    {
+      "user": {
+        "id": "u2",
+        "name": "Zeynep",
+        "rank": 0
+      },
+      "persona": "Student on a tight budget.",
+      "hidden_preferences": [
+        {
+          "id": "c2",
+          "user_id": "u2",
+          "type": "location",
+          "operator": "eq",
+          "value": "Üsküdar",
+          "strength": "hard",
+          "weight": 1.0,
+          "source_message_id": "m2",
+          "raw_text": "Somewhere in Üsküdar would be ideal."
+        }
+      ]
+    }
+  ],
+  "scripted_messages": [
+    {
+      "id": "m1",
+      "role": "user",
+      "user_id": "u1",
+      "turn": 0,
+      "text": "It should start by 19:00 at the latest.",
+      "timestamp": null
+    },
+    {
+      "id": "m2",
+      "role": "user",
+      "user_id": "u2",
+      "turn": 1,
+      "text": "Somewhere in Üsküdar would be ideal.",
+      "timestamp": null
+    }
+  ],
+  "gold_constraints": [
+    {
+      "id": "c1",
+      "user_id": "u1",
+      "type": "time",
+      "operator": "lte",
+      "value": "19:00",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m1",
+      "raw_text": "It should start by 19:00 at the latest."
+    },
+    {
+      "id": "c2",
+      "user_id": "u2",
+      "type": "location",
+      "operator": "eq",
+      "value": "Üsküdar",
+      "strength": "hard",
+      "weight": 1.0,
+      "source_message_id": "m2",
+      "raw_text": "Somewhere in Üsküdar would be ideal."
+    }
+  ],
+  "gold_labels": [
+    {
+      "scenario_id": "sc-0030",
+      "message_ids": [
+        "m1",
+        "m2"
+      ],
+      "has_conflict": false,
+      "conflict_type": null,
+      "annotator": "generator",
+      "notes": ""
+    }
+  ],
+  "seed": 943239974
+}
