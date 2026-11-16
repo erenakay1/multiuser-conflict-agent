@@ -106,3 +106,39 @@ def test_import_export_roundtrip(scenario: Scenario, tmp_path: Path) -> None:
     ):
         with pytest.raises(ValueError):
             labels_from_export(bad, [scenario])
+
+
+def test_adjudicate(scenario: Scenario) -> None:
+    from mucon.eval.agreement import adjudicate
+    from mucon.schemas import AdjudicationDecision, AdjudicationRecord
+
+    a = labels_for_scenario(scenario, {frozenset((1, 3)): ConflictType.DIRECT}, "yusuf")
+    b = labels_for_scenario(scenario, {frozenset((1, 2)): ConflictType.RANGE}, "generator")
+
+    def record(*decisions: AdjudicationDecision) -> AdjudicationRecord:
+        return AdjudicationRecord(
+            annotators=["yusuf", "generator"],
+            decided_by=["eren"],
+            date="2026-11-16",
+            decisions=list(decisions),
+        )
+
+    d13 = AdjudicationDecision(
+        scenario_id="sc-1", message_ids=["m1", "m3"], decision=None, rationale="x"
+    )
+    d12 = AdjudicationDecision(
+        scenario_id="sc-1", message_ids=["m2", "m1"], decision=ConflictType.RANGE, rationale="y"
+    )
+    out = adjudicate(a, b, record(d13, d12))
+    assert len(out) == 3 and all(lb.annotator == "adjudicated" for lb in out)
+    pos = [lb for lb in out if lb.has_conflict]
+    assert [(lb.message_ids, lb.conflict_type, lb.notes) for lb in pos] == [
+        (["m1", "m2"], ConflictType.RANGE, "y")
+    ]
+    with pytest.raises(ValueError, match="eksik"):
+        adjudicate(a, b, record(d13))
+    d23 = AdjudicationDecision(
+        scenario_id="sc-1", message_ids=["m2", "m3"], decision=None, rationale="z"
+    )
+    with pytest.raises(ValueError, match="Uyuşmazlık olmayan"):
+        adjudicate(a, b, record(d13, d12, d23))

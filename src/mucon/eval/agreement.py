@@ -15,7 +15,7 @@ from pathlib import Path
 from pydantic import BaseModel
 from sklearn.metrics import cohen_kappa_score
 
-from mucon.schemas import ConflictLabel, ConflictType, Scenario
+from mucon.schemas import AdjudicationRecord, ConflictLabel, ConflictType, Scenario
 
 NO_CONFLICT = "none"
 
@@ -238,3 +238,56 @@ def write_labels_replacing(path: Path, new: list[ConflictLabel]) -> int:
         encoding="utf-8",
     )
     return len(merged)
+
+
+# ---------------------------------------------------------------------------
+# Uzlaştırma (adjudication)
+# ---------------------------------------------------------------------------
+
+ADJUDICATED_ANNOTATOR = "adjudicated"
+
+
+def adjudicate(
+    a: list[ConflictLabel], b: list[ConflictLabel], record: AdjudicationRecord
+) -> list[ConflictLabel]:
+    """Nihai etiketler: A ile B'nin uyuştuğu çiftler aynen, uyuşmayanlar kayıttaki kararla.
+
+    Her uyuşmazlığın tam olarak bir kararı olmalı; uyuşan bir çift için karar verilemez.
+    Yalnızca iki kümede de bulunan çiftler sonuca girer.
+    """
+    rep = agreement(a, b)
+    disputed = {(d.scenario_id, frozenset(d.message_ids)) for d in rep.disagreements}
+    decided = {(d.scenario_id, frozenset(d.message_ids)): d for d in record.decisions}
+    if len(decided) != len(record.decisions):
+        raise ValueError("Aynı çift için birden fazla karar var")
+
+    def fmt(keys: set[PairKey]) -> str:
+        return ", ".join(f"{sid} {'-'.join(sorted(m))}" for sid, m in sorted(keys, key=str))
+
+    if missing := disputed - set(decided):
+        raise ValueError(f"Kararı eksik uyuşmazlıklar: {fmt(missing)}")
+    if extra := set(decided) - disputed:
+        raise ValueError(f"Uyuşmazlık olmayan çiftlere karar verilmiş: {fmt(extra)}")
+
+    ib = _index(b)
+    out: list[ConflictLabel] = []
+    for lb in a:
+        key = (lb.scenario_id, frozenset(lb.message_ids))
+        if key not in ib:
+            continue
+        if key in decided:
+            d = decided[key]
+            ctype, notes = d.decision, d.rationale
+        else:
+            ctype, notes = lb.conflict_type, ""
+        out.append(
+            ConflictLabel(
+                scenario_id=lb.scenario_id,
+                message_ids=lb.message_ids,
+                has_conflict=ctype is not None,
+                conflict_type=ctype,
+                annotator=ADJUDICATED_ANNOTATOR,
+                notes=notes,
+            )
+        )
+    return out

@@ -12,6 +12,7 @@ import typer
 
 from mucon.config import DEFAULT_CONFIG_PATH, PROJECT_ROOT, AppConfig, load_config
 from mucon.env.event_planning import VenueDB, generate_mock_venues, planning_window
+from mucon.schemas import ConflictLabel
 
 app = typer.Typer(
     help="Eşit yetkili çok kullanıcılı LLM agent'larında talimat çakışması deneyleri.",
@@ -44,6 +45,20 @@ def _venue_db(cfg: AppConfig, *, create: bool) -> VenueDB:
     db.to_json(path)
     typer.echo(f"{len(db.venues)} mekan üretildi → {path}")
     return db
+
+
+def _labels_of(cfg: AppConfig, name: str) -> list[ConflictLabel]:
+    """Etiketleyicinin etiketleri; 'generator' = senaryolara gömülü üreteç etiketleri."""
+    from mucon.eval.agreement import load_labels
+    from mucon.sim.scenario_generator import ScenarioGenerator
+
+    if name == "generator":
+        scs = ScenarioGenerator.load(_abs(cfg.paths.scenarios_dir))
+        return [lb for sc in scs for lb in sc.gold_labels]
+    path = _abs(cfg.paths.labels_dir) / f"{name}.jsonl"
+    if not path.exists():
+        raise typer.BadParameter(f"{path} yok")
+    return load_labels(path)
 
 
 @app.command()
@@ -185,22 +200,10 @@ def agreement_cmd(
     show: Annotated[int, typer.Option(help="Gösterilecek uyuşmazlık sayısı")] = 20,
 ) -> None:
     """İki etiketleyici arasındaki uyum (Cohen's κ). 'generator' = üretecin altın etiketleri."""
-    from mucon.eval.agreement import agreement, load_labels
-    from mucon.schemas import ConflictLabel
-    from mucon.sim.scenario_generator import ScenarioGenerator
+    from mucon.eval.agreement import agreement
 
     cfg = load_config(app_config)
-
-    def labels_of(name: str) -> list[ConflictLabel]:
-        if name == "generator":
-            scs = ScenarioGenerator.load(_abs(cfg.paths.scenarios_dir))
-            return [lb for sc in scs for lb in sc.gold_labels]
-        path = _abs(cfg.paths.labels_dir) / f"{name}.jsonl"
-        if not path.exists():
-            raise typer.BadParameter(f"{path} yok")
-        return load_labels(path)
-
-    rep = agreement(labels_of(a), labels_of(b))
+    rep = agreement(_labels_of(cfg, a), _labels_of(cfg, b))
     typer.echo(
         f"{rep.n_scenarios} senaryo, {rep.n_pairs} mesaj çifti | "
         f"çakışma sayısı {a}={rep.n_conflicts_a}, {b}={rep.n_conflicts_b}\n"
@@ -209,6 +212,34 @@ def agreement_cmd(
     )
     for d in rep.disagreements[:show]:
         typer.echo(f"  {d.scenario_id} {'-'.join(d.message_ids)}: {a}={d.a} {b}={d.b}")
+
+
+@app.command()
+def adjudicate(
+    record_file: Annotated[Path, typer.Option("--record", help="Uzlaştırma kararları")] = Path(
+        "data/labels/adjudication.json"
+    ),
+    app_config: AppConfigOpt = DEFAULT_CONFIG_PATH,
+) -> None:
+    """Uzlaştırma kararlarını uygulayıp data/labels/adjudicated.jsonl üretir."""
+    from mucon.eval.agreement import ADJUDICATED_ANNOTATOR, adjudicate, write_labels_replacing
+    from mucon.schemas import AdjudicationRecord
+
+    cfg = load_config(app_config)
+    record = AdjudicationRecord.model_validate_json(_abs(record_file).read_text(encoding="utf-8"))
+    a, b = record.annotators
+    try:
+        labels = adjudicate(_labels_of(cfg, a), _labels_of(cfg, b), record)
+    except ValueError as e:
+        raise typer.BadParameter(str(e)) from e
+    path = _abs(cfg.paths.labels_dir) / f"{ADJUDICATED_ANNOTATOR}.jsonl"
+    if path.exists():
+        path.unlink()  # her seferinde baştan üretilir
+    write_labels_replacing(path, labels)
+    n_pos = sum(lb.has_conflict for lb in labels)
+    typer.echo(
+        f"{len(record.decisions)} karar uygulandı → {path} ({len(labels)} çift, {n_pos} çakışma)"
+    )
 
 
 @app.command("extract-eval")

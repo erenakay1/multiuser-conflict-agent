@@ -178,6 +178,27 @@ class ConflictLabel(_Model):
         return self
 
 
+class AdjudicationDecision(_Model):
+    """İki etiketleyicinin uyuşmadığı bir mesaj çifti için verilen nihai karar."""
+
+    scenario_id: str
+    message_ids: list[str] = Field(min_length=2, max_length=2)
+    decision: ConflictType | None = Field(description="None = çakışma yok")
+    labels_before: dict[str, str] = Field(
+        default_factory=dict, description="etiketleyici → etiketi ('none' = çakışma yok)"
+    )
+    rationale: str
+
+
+class AdjudicationRecord(_Model):
+    """Uzlaştırma oturumu: `data/labels/adjudication.json`."""
+
+    annotators: list[str] = Field(min_length=2, max_length=2)
+    decided_by: list[str] = Field(min_length=1)
+    date: str
+    decisions: list[AdjudicationDecision] = Field(default_factory=list)
+
+
 class Scenario(_Model):
     """Bir grup etkinlik planlama senaryosu (simülasyon girdisi)."""
 
