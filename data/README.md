@@ -18,7 +18,8 @@
 | `description` | str | Senaryonun kısa açıklaması |
 | `personas` | list[UserPersona] (≥2) | `user` (`id`, `name`, `rank`), `persona`, `hidden_preferences: list[Constraint]` |
 | `scripted_messages` | list[Message] | Dedektör değerlendirmesi için sabit diyalog (opsiyonel) |
-| `gold_labels` | list[ConflictLabel] | Senaryoya gömülü etiketler (opsiyonel) |
+| `gold_constraints` | list[Constraint] | Mesaj başına çıkarılması gereken kısıtlar (kısıt çıkarıcının altın standardı; revize edilen eski talimat dahil) |
+| `gold_labels` | list[ConflictLabel] | Üretecin tüm mesaj çiftleri için etiketleri (`annotator="generator"`) |
 | `seed` | int \| null | Üretim seed'i |
 
 ## Session
@@ -56,4 +57,12 @@ Agent'ın gördüğü canlı oturum; gizli tercihler **yoktur**.
 | `annotator` | str | `eren`, `yusuf`, ... |
 | `notes` | str | |
 
-> Çakışma türleri taslaktır; H2'de etiketleme kılavuzu ile kesinleşecek.
+Tür tanımları ve etiketleme kuralları: [`docs/annotation-guideline.md`](../docs/annotation-guideline.md).
+
+## Üretim
+```bash
+uv run mucon generate --n 50          # data/processed/venues.json + data/scenarios/sc-*.json
+uv run mucon label -a yusuf --n 50    # insan etiketleri → data/labels/yusuf.jsonl
+uv run mucon agreement yusuf generator
+```
+Üretim ayarları `configs/default.yaml` → `generation`. Aynı seed aynı veriyi üretir.
