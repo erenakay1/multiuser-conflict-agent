@@ -19,3 +19,12 @@ paths:
   results_dir: results
   external_dir: external
   venue_db: data/processed/venues.json
+
+generation:
+  n_venues: 90                  # mock mekan sayısı (her etkinlik türünden eşit)
+  n_users_min: 2
+  n_users_max: 4
+  conflict_rate: 0.5            # çakışmalı senaryo oranı (türler eşit dağıtılır)
+  near_miss_rate: 0.5           # çakışmasız senaryoların ne kadarı "zor negatif" çift içerir
+  window_start: "2026-12-04"    # planlama penceresi (cuma)
+  window_days: 10
