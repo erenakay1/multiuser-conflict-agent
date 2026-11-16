@@ -127,6 +127,56 @@ def label(
     typer.echo("Bitti.")
 
 
+@app.command("label-ui")
+def label_ui(
+    n: Annotated[int, typer.Option("--n", help="Arayüze konacak senaryo sayısı (baştan)")] = 50,
+    out: Annotated[Path, typer.Option("--out", help="Üretilecek HTML")] = Path(
+        "results/label_ui/index.html"
+    ),
+    open_browser: Annotated[bool, typer.Option("--open/--no-open")] = True,
+    app_config: AppConfigOpt = DEFAULT_CONFIG_PATH,
+) -> None:
+    """Tarayıcıda etiketleme sayfası üret (kör: üreteç etiketleri yok). Sonra: import-labels."""
+    import webbrowser
+
+    from mucon.eval.agreement import render_label_ui
+    from mucon.sim.scenario_generator import ScenarioGenerator
+
+    cfg = load_config(app_config)
+    scenarios = ScenarioGenerator.load(_abs(cfg.paths.scenarios_dir))[:n]
+    path = _abs(out)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    key = f"{scenarios[0].id}-{scenarios[-1].id}-{len(scenarios)}" if scenarios else "empty"
+    path.write_text(render_label_ui(scenarios, key), encoding="utf-8")
+    typer.echo(f"{len(scenarios)} senaryo → {path}")
+    if open_browser:
+        webbrowser.open(path.as_uri())
+
+
+@app.command("import-labels")
+def import_labels(
+    export_file: Annotated[Path, typer.Argument(help="Arayüzden indirilen labels_<ad>.json")],
+    app_config: AppConfigOpt = DEFAULT_CONFIG_PATH,
+) -> None:
+    """Arayüz çıktısını doğrulayıp data/labels/<annotator>.jsonl dosyasına yazar."""
+    from mucon.eval.agreement import labels_from_export, write_labels_replacing
+    from mucon.sim.scenario_generator import ScenarioGenerator
+
+    cfg = load_config(app_config)
+    scenarios = ScenarioGenerator.load(_abs(cfg.paths.scenarios_dir))
+    data = json.loads(export_file.read_text(encoding="utf-8"))
+    try:
+        annotator, labels = labels_from_export(data, scenarios)
+    except ValueError as e:
+        raise typer.BadParameter(str(e)) from e
+    path = _abs(cfg.paths.labels_dir) / f"{annotator}.jsonl"
+    total = write_labels_replacing(path, labels)
+    n_sc = len({lb.scenario_id for lb in labels})
+    n_pos = sum(lb.has_conflict for lb in labels)
+    typer.echo(f"{annotator}: {n_sc} senaryo, {len(labels)} çift ({n_pos} çakışma) → {path}")
+    typer.echo(f"Dosyada toplam {total} etiket satırı var.")
+
+
 @app.command("agreement")
 def agreement_cmd(
     a: Annotated[str, typer.Argument(help="Etiketleyici A (ör. yusuf)")],

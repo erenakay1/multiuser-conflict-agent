@@ -53,3 +53,56 @@ def test_labels_roundtrip_and_agreement(scenario: Scenario, tmp_path: Path) -> N
     rep = agreement(a, b)
     assert rep.binary_accuracy == 1.0 and rep.type_accuracy == pytest.approx(2 / 3)
     assert len(rep.disagreements) == 1
+
+
+def test_label_ui_is_blind(scenario: Scenario) -> None:
+    from mucon.eval.agreement import render_label_ui
+    from mucon.schemas import ConflictLabel
+
+    secret = scenario.model_copy(
+        update={
+            "description": "generator kind=direct",
+            "gold_labels": [
+                ConflictLabel(
+                    scenario_id="sc-1",
+                    message_ids=["m1", "m3"],
+                    has_conflict=True,
+                    conflict_type=ConflictType.DIRECT,
+                    annotator="generator",
+                )
+            ],
+        }
+    )
+    html = render_label_ui([secret], "k")
+    assert '"id": "sc-1"' in html and "/*__SCENARIOS__*/" not in html
+    assert "kind=" not in html and '"generator"' not in html.split("const STORE_KEY")[0]
+
+
+def test_import_export_roundtrip(scenario: Scenario, tmp_path: Path) -> None:
+    from mucon.eval.agreement import labels_from_export, write_labels_replacing
+
+    export = {
+        "format": "mucon-labels-v1",
+        "annotator": "Yusuf",
+        "labels": {
+            "sc-1": {"conflicts": [{"a": "m3", "b": "m1", "type": "direct"}], "notes": " hm "}
+        },
+    }
+    annotator, labels = labels_from_export(export, [scenario])
+    assert annotator == "yusuf" and len(labels) == 3
+    pos = [lb for lb in labels if lb.has_conflict]
+    assert pos[0].message_ids == ["m1", "m3"] and pos[0].notes == "hm"
+
+    path = tmp_path / "yusuf.jsonl"
+    assert write_labels_replacing(path, labels) == 3
+    assert write_labels_replacing(path, labels) == 3  # tekrar içe aktarım çoğaltmaz
+
+    for bad in (
+        {**export, "format": "x"},
+        {**export, "annotator": "generator"},
+        {**export, "labels": {"sc-9": {"conflicts": []}}},
+        {**export, "labels": {"sc-1": {"conflicts": [{"a": "m1", "b": "m9", "type": "direct"}]}}},
+        {**export, "labels": {"sc-1": {"conflicts": [{"a": "m1", "b": "m2", "type": "zzz"}]}}},
+    ):
+        with pytest.raises(ValueError):
+            labels_from_export(bad, [scenario])

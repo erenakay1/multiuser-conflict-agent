@@ -156,3 +156,85 @@ def agreement(a: list[ConflictLabel], b: list[ConflictLabel]) -> AgreementReport
             if x != y
         ],
     )
+
+
+# ---------------------------------------------------------------------------
+# Tarayıcıda etiketleme arayüzü (label_ui.html) ve dışa aktarım
+# ---------------------------------------------------------------------------
+
+LABEL_UI_TEMPLATE = Path(__file__).with_name("label_ui.html")
+EXPORT_FORMAT = "mucon-labels-v1"
+
+
+def label_ui_payload(scenarios: list[Scenario]) -> list[dict[str, object]]:
+    """Arayüze gömülecek **kör** veri: yalnız kullanıcı adları ve mesajlar.
+
+    Üreteç etiketleri, senaryo açıklaması (türü içerir) ve gizli tercihler dahil edilmez.
+    """
+    return [
+        {
+            "id": sc.id,
+            "users": {p.user.id: p.user.name for p in sc.personas},
+            "messages": [
+                {"id": m.id, "user_id": m.user_id, "text": m.text} for m in sc.user_messages()
+            ],
+        }
+        for sc in scenarios
+    ]
+
+
+def render_label_ui(scenarios: list[Scenario], dataset_key: str) -> str:
+    """Senaryoları gömülü, tek dosyalık etiketleme sayfası (HTML) üretir."""
+
+    def js(value: object) -> str:  # </script> kaçışı
+        return json.dumps(value, ensure_ascii=False).replace("</", "<\\/")
+
+    html = LABEL_UI_TEMPLATE.read_text(encoding="utf-8")
+    html = html.replace("/*__SCENARIOS__*/[]", js(label_ui_payload(scenarios)))
+    return html.replace('/*__DATASET_KEY__*/"default"', js(dataset_key))
+
+
+def labels_from_export(
+    data: dict[str, object], scenarios: list[Scenario]
+) -> tuple[str, list[ConflictLabel]]:
+    """Arayüzün dışa aktardığı JSON'u doğrulayıp (etiketleyici, etiketler) döndürür."""
+    if data.get("format") != EXPORT_FORMAT:
+        raise ValueError(f"Beklenen biçim '{EXPORT_FORMAT}', gelen: {data.get('format')!r}")
+    annotator = str(data.get("annotator") or "").strip().lower()
+    if not annotator or annotator == "generator":
+        raise ValueError(f"Geçersiz etiketleyici adı: {annotator!r}")
+    raw_labels = data.get("labels")
+    if not isinstance(raw_labels, dict):
+        raise ValueError("'labels' alanı sözlük olmalı")
+
+    by_id = {sc.id: sc for sc in scenarios}
+    out: list[ConflictLabel] = []
+    for sid, entry in raw_labels.items():
+        if sid not in by_id:
+            raise ValueError(f"Bilinmeyen senaryo: {sid}")
+        sc = by_id[sid]
+        index = {m.id: i for i, m in enumerate(sc.user_messages(), start=1)}
+        conflicts: dict[frozenset[int], ConflictType] = {}
+        for c in entry.get("conflicts", []):
+            a, b = c.get("a"), c.get("b")
+            if a not in index or b not in index or a == b:
+                raise ValueError(f"{sid}: geçersiz mesaj çifti {a!r}-{b!r}")
+            key = frozenset((index[a], index[b]))
+            if key in conflicts:
+                raise ValueError(f"{sid}: {a}-{b} çifti iki kez etiketlenmiş")
+            conflicts[key] = ConflictType(c.get("type"))
+        out += labels_for_scenario(sc, conflicts, annotator, str(entry.get("notes", "")).strip())
+    return annotator, out
+
+
+def write_labels_replacing(path: Path, new: list[ConflictLabel]) -> int:
+    """Etiketleri yazar (aynı senaryonun eski etiketleri değişir); toplam satır sayısı döner."""
+    replaced = {lb.scenario_id for lb in new}
+    kept = [lb for lb in load_labels(path) if lb.scenario_id not in replaced]
+    merged = sorted(kept + new, key=lambda lb: (lb.scenario_id, lb.message_ids))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "".join(json.dumps(lb.model_dump(mode="json"), ensure_ascii=False) + "\n" for lb in merged),
+        encoding="utf-8",
+    )
+    return len(merged)

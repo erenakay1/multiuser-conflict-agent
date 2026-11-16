@@ -91,6 +91,15 @@ Ortam kuralları (`src/mucon/env/event_planning.py`):
      - revision çifti ayrıca başka bir kullanıcıyla da çakışıyorsa? -->
 
 ## 7. Etiketleme aracı
+**Tarayıcı arayüzü (önerilen):**
+```bash
+uv run mucon label-ui                              # results/label_ui/index.html açılır
+# ... etiketle, "Dışa aktar" → labels_yusuf.json indirilir
+uv run mucon import-labels ~/Downloads/labels_yusuf.json   # → data/labels/yusuf.jsonl
+```
+Mesajlara tıklayarak çift seçilir, tür butonla (veya `d r i v`) verilir; ilerleme tarayıcıda saklanır.
+
+**Terminal alternatifi:**
 ```bash
 uv run mucon label --annotator yusuf --n 50     # kaldığı yerden devam eder, q = çık
 ```

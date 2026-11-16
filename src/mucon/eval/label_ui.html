@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Çakışma Etiketleme</title>
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --text: #1d2330; --muted: #6b7385; --line: #e2e5eb;
+  --accent: #2f6fdb; --accent-soft: #e6eefc; --ok: #1f8a4c; --warn: #b26a00; --bad: #c0392b;
+  --sel: #fff4d6; --sel-line: #e0a800;
+  --direct: #c0392b; --range: #8e44ad; --indirect: #d35400; --revision: #16768a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171c; --panel: #1d2128; --text: #e6e9ef; --muted: #98a0b0; --line: #2d333d;
+    --accent: #6c9cf0; --accent-soft: #23314a; --ok: #4cc27f; --warn: #e0a040; --bad: #ef6a5b;
+    --sel: #3a3220; --sel-line: #e0a800;
+    --direct: #ef6a5b; --range: #b58be0; --indirect: #f0934a; --revision: #4fb6c9;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg); color: var(--text); }
+header { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 10px 16px;
+  background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+header h1 { font-size: 16px; margin: 0 8px 0 0; }
+.progress { flex: 1; min-width: 160px; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.progress > div { height: 100%; background: var(--ok); width: 0; transition: width .2s; }
+button, input, textarea { font: inherit; color: inherit; }
+button { border: 1px solid var(--line); background: var(--panel); border-radius: 6px;
+  padding: 6px 12px; cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: .4; cursor: default; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+input[type=text] { border: 1px solid var(--line); background: var(--bg); border-radius: 6px; padding: 5px 8px; width: 110px; }
+.layout { display: grid; grid-template-columns: 170px 1fr 300px; gap: 16px; padding: 16px; max-width: 1400px; margin: 0 auto; }
+@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } aside.list { max-height: 160px; } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+aside.list { overflow-y: auto; max-height: calc(100vh - 90px); padding: 6px; }
+aside.list a { display: flex; justify-content: space-between; padding: 4px 8px; border-radius: 6px;
+  color: inherit; text-decoration: none; font-variant-numeric: tabular-nums; font-size: 13px; }
+aside.list a:hover { background: var(--accent-soft); }
+aside.list a.cur { background: var(--accent); color: #fff; }
+aside.list a .st { color: var(--muted); }
+aside.list a.done .st { color: var(--ok); }
+aside.list a.cur .st { color: #fff; }
+.sc-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.sc-head h2 { margin: 0; font-size: 18px; }
+.muted { color: var(--muted); font-size: 13px; }
+.msg { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; margin: 6px 0;
+  border: 1px solid var(--line); border-radius: 8px; cursor: pointer; user-select: none; }
+.msg:hover { border-color: var(--accent); }
+.msg.sel { background: var(--sel); border-color: var(--sel-line); }
+.num { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 13px; }
+.msg.sel .num { background: var(--sel-line); color: #000; }
+.who { flex: none; width: 74px; font-weight: 600; }
+.text { flex: 1; }
+.tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.tag { font-size: 11px; padding: 1px 6px; border-radius: 10px; color: #fff; }
+.types { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 6px; }
+.types button { border-width: 2px; }
+.t-direct { border-color: var(--direct) !important; } .bg-direct { background: var(--direct); }
+.t-range { border-color: var(--range) !important; } .bg-range { background: var(--range); }
+.t-indirect { border-color: var(--indirect) !important; } .bg-indirect { background: var(--indirect); }
+.t-revision { border-color: var(--revision) !important; } .bg-revision { background: var(--revision); }
+.hint { min-height: 20px; font-size: 13px; color: var(--muted); }
+.hint.warn { color: var(--warn); }
+ul.conf { list-style: none; padding: 0; margin: 8px 0; }
+ul.conf li { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+ul.conf li button { padding: 0 8px; }
+textarea { width: 100%; min-height: 48px; border: 1px solid var(--line); background: var(--bg); border-radius: 6px; padding: 6px 8px; }
+.actions { display: flex; gap: 8px; justify-content: space-between; margin-top: 12px; flex-wrap: wrap; }
+aside.guide h3 { font-size: 14px; margin: 14px 0 6px; }
+aside.guide h3:first-child { margin-top: 0; }
+aside.guide table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+aside.guide td { border-top: 1px solid var(--line); padding: 4px 4px; vertical-align: top; }
+kbd { font: 12px ui-monospace, monospace; border: 1px solid var(--line); border-bottom-width: 2px;
+  border-radius: 4px; padding: 0 4px; background: var(--bg); }
+.toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--text);
+  color: var(--bg); padding: 8px 14px; border-radius: 6px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.show { opacity: .95; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Çakışma Etiketleme</h1>
+  <label class="muted">Etiketleyici <input type="text" id="annotator" placeholder="yusuf"></label>
+  <span class="muted" id="count"></span>
+  <div class="progress"><div id="bar"></div></div>
+  <button id="importBtn">İçe aktar</button>
+  <button class="primary" id="exportBtn">Dışa aktar (JSON)</button>
+  <input type="file" id="importFile" accept="application/json" hidden>
+</header>
+
+<div class="layout">
+  <aside class="card list" id="list"></aside>
+
+  <main class="card">
+    <div class="sc-head"><h2 id="scId"></h2><span class="muted" id="scInfo"></span></div>
+    <div id="msgs"></div>
+
+    <div class="types">
+      <button class="t-direct" data-type="direct" disabled>direct <kbd>d</kbd></button>
+      <button class="t-range" data-type="range" disabled>range <kbd>r</kbd></button>
+      <button class="t-indirect" data-type="indirect" disabled>indirect <kbd>i</kbd></button>
+      <button class="t-revision" data-type="revision" disabled>revision <kbd>v</kbd></button>
+    </div>
+    <div class="hint" id="hint">Çakışan iki mesaja tıklayın (veya numarasına basın), sonra türü seçin.</div>
+
+    <h3 style="font-size:14px;margin:14px 0 0">Bu senaryodaki çakışmalar</h3>
+    <ul class="conf" id="conf"></ul>
+    <textarea id="notes" placeholder="Not (isteğe bağlı): kararsız kaldığınız durumlar, kılavuz için gözlemler…"></textarea>
+
+    <div class="actions">
+      <span>
+        <button id="prevBtn">← Önceki</button>
+        <button id="nextBtn">Sonraki →</button>
+      </span>
+      <button class="primary" id="saveBtn"></button>
+    </div>
+  </main>
+
+  <aside class="card guide">
+    <h3>Çakışma = ikisini birlikte sağlayan plan yok</h3>
+    <table>
+      <tr><td><span class="tag bg-direct">direct</span></td><td>Aynı konu, ayrık değer (cuma ↔ cumartesi; Kadıköy ↔ Kadıköy olmasın)</td></tr>
+      <tr><td><span class="tag bg-range">range</span></td><td>Sayı/saat aralıkları kesişmiyor (≤ 400 TL ↔ ≥ 800 TL; 16:00'dan önce ↔ 18:00'den sonra)</td></tr>
+      <tr><td><span class="tag bg-indirect">indirect</span></td><td>Farklı konular ama birlikte imkânsız (aşağıdaki kurallar)</td></tr>
+      <tr><td><span class="tag bg-revision">revision</span></td><td><b>Aynı kullanıcı</b> önceki talimatını değiştiriyor</td></tr>
+    </table>
+    <h3>indirect kuralları</h3>
+    <table>
+      <tr><td>Vegan / vejetaryen</td><td>↔ steakhouse</td></tr>
+      <tr><td>Kişi başı ≤ 400 TL</td><td>↔ fine dining (≥ 900 TL)</td></tr>
+      <tr><td>Tekerlekli sandalye erişimi</td><td>↔ rooftop bar</td></tr>
+      <tr><td>≥ 15 kişilik yer</td><td>↔ escape room (≤ 8 kişi)</td></tr>
+    </table>
+    <h3>Çakışma DEĞİL (tuzaklar)</h3>
+    <table>
+      <tr><td>"Cuma ya da pazar" ↔ "pazar"</td></tr>
+      <tr><td>≤ 600 TL ↔ ≤ 900 TL</td></tr>
+      <tr><td>≥ 18:00 ↔ ≤ 20:00</td></tr>
+      <tr><td>Kadıköy ↔ Beşiktaş olmasın</td></tr>
+    </table>
+    <h3>Kısayollar</h3>
+    <table>
+      <tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>mesaj seç / bırak</td></tr>
+      <tr><td><kbd>d</kbd> <kbd>r</kbd> <kbd>i</kbd> <kbd>v</kbd></td><td>seçili çifte tür ver</td></tr>
+      <tr><td><kbd>Enter</kbd></td><td>kaydet ve sonraki</td></tr>
+      <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>gezin</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>seçimi temizle</td></tr>
+      <tr><td><kbd>⌫</kbd></td><td>son çakışmayı sil</td></tr>
+    </table>
+    <p class="muted">İlerleme bu tarayıcıda otomatik saklanır. Bitince <b>Dışa aktar</b> ile JSON'u indirin.</p>
+  </aside>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const SCENARIOS = /*__SCENARIOS__*/[];
+const STORE_KEY = "mucon-label-ui-v1:" + /*__DATASET_KEY__*/"default";
+const TYPES = { d: "direct", r: "range", i: "indirect", v: "revision" };
+
+let state = { annotator: "", idx: 0, labels: {} };  // labels[sid] = {conflicts:[{a,b,type}], notes, done}
+let selection = [];
+
+function load() {
+  try { const raw = localStorage.getItem(STORE_KEY); if (raw) state = Object.assign(state, JSON.parse(raw)); }
+  catch (e) { /* depolama kapalı olabilir; sayfa yine çalışır */ }
+}
+function persist() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function entry(sid) {
+  if (!state.labels[sid]) state.labels[sid] = { conflicts: [], notes: "", done: false };
+  return state.labels[sid];
+}
+function toast(msg) {
+  const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 1800);
+}
+const $ = (id) => document.getElementById(id);
+const sc = () => SCENARIOS[state.idx];
+
+function renderList() {
+  const list = $("list"); list.innerHTML = "";
+  SCENARIOS.forEach((s, i) => {
+    const e = state.labels[s.id], a = document.createElement("a");
+    a.href = "#"; a.className = (i === state.idx ? "cur " : "") + (e && e.done ? "done" : "");
+    const st = e && e.done ? (e.conflicts.length ? "✓ " + e.conflicts.length : "✓ 0") : "·";
+    a.innerHTML = `<span>${s.id}</span><span class="st">${st}</span>`;
+    a.onclick = (ev) => { ev.preventDefault(); go(i); };
+    list.appendChild(a);
+  });
+  const done = SCENARIOS.filter((s) => state.labels[s.id] && state.labels[s.id].done).length;
+  $("count").textContent = `${done} / ${SCENARIOS.length}`;
+  $("bar").style.width = (100 * done / Math.max(1, SCENARIOS.length)) + "%";
+  const cur = list.querySelector(".cur"); if (cur) cur.scrollIntoView({ block: "nearest" });
+}
+
+function msgIndex(mid) { return sc().messages.findIndex((m) => m.id === mid); }
+
+function render() {
+  const s = sc(), e = entry(s.id);
+  $("scId").textContent = s.id;
+  $("scInfo").textContent = `${Object.keys(s.users).length} kullanıcı · ${s.messages.length} mesaj`;
+  const box = $("msgs"); box.innerHTML = "";
+  s.messages.forEach((m, i) => {
+    const div = document.createElement("div");
+    div.className = "msg" + (selection.includes(m.id) ? " sel" : "");
+    const tags = e.conflicts.filter((c) => c.a === m.id || c.b === m.id)
+      .map((c) => `<span class="tag bg-${c.type}">${c.type} ↔ ${1 + msgIndex(c.a === m.id ? c.b : c.a)}</span>`).join("");
+    div.innerHTML = `<span class="num">${i + 1}</span><span class="who"></span><span class="text"></span><span class="tags">${tags}</span>`;
+    div.querySelector(".who").textContent = s.users[m.user_id] || m.user_id;
+    div.querySelector(".text").textContent = m.text;
+    div.onclick = () => toggle(m.id);
+    box.appendChild(div);
+  });
+  const conf = $("conf"); conf.innerHTML = "";
+  if (!e.conflicts.length) conf.innerHTML = `<li class="muted">Henüz yok. Çakışma yoksa doğrudan kaydedin.</li>`;
+  e.conflicts.forEach((c, k) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="tag bg-${c.type}">${c.type}</span> <b>${1 + msgIndex(c.a)} ↔ ${1 + msgIndex(c.b)}</b>`;
+    const del = document.createElement("button"); del.textContent = "✕"; del.title = "Sil";
+    del.onclick = () => { e.conflicts.splice(k, 1); e.done = false; persist(); render(); renderList(); };
+    li.appendChild(del); conf.appendChild(li);
+  });
+  $("notes").value = e.notes || "";
+  $("saveBtn").textContent = e.conflicts.length ? "Kaydet ve sonraki ⏎" : "Çakışma yok → kaydet ve sonraki ⏎";
+  $("prevBtn").disabled = state.idx === 0;
+  $("nextBtn").disabled = state.idx === SCENARIOS.length - 1;
+  updateTypeButtons();
+}
+
+function updateTypeButtons() {
+  const ready = selection.length === 2;
+  document.querySelectorAll(".types button").forEach((b) => (b.disabled = !ready));
+  const hint = $("hint"); hint.className = "hint";
+  if (!ready) {
+    hint.textContent = selection.length === 1
+      ? "İkinci mesajı seçin."
+      : "Çakışan iki mesaja tıklayın (veya numarasına basın), sonra türü seçin.";
+    return;
+  }
+  const s = sc(), [a, b] = selection.map((id) => s.messages.find((m) => m.id === id));
+  if (a.user_id === b.user_id) {
+    hint.textContent = "İki mesaj aynı kullanıcıdan: genellikle revision.";
+  } else {
+    hint.textContent = "Farklı kullanıcılar: direct / range / indirect.";
+  }
+}
+
+function toggle(mid) {
+  if (selection.includes(mid)) selection = selection.filter((x) => x !== mid);
+  else selection = selection.length >= 2 ? [selection[1], mid] : [...selection, mid];
+  render();
+}
+
+function addConflict(type) {
+  if (selection.length !== 2) return;
+  const s = sc(), e = entry(s.id);
+  const [a, b] = selection.slice().sort((x, y) => msgIndex(x) - msgIndex(y));
+  const same = s.messages.find((m) => m.id === a).user_id === s.messages.find((m) => m.id === b).user_id;
+  if (type === "revision" && !same) toast("Uyarı: revision normalde aynı kullanıcının iki mesajıdır");
+  if (type !== "revision" && same) toast("Uyarı: aynı kullanıcının iki mesajı genellikle revision'dır");
+  const existing = e.conflicts.find((c) => c.a === a && c.b === b);
+  if (existing) existing.type = type; else e.conflicts.push({ a, b, type });
+  e.done = false; selection = []; persist(); render(); renderList();
+}
+
+function saveAndNext() {
+  const e = entry(sc().id);
+  e.notes = $("notes").value.trim(); e.done = true; persist();
+  if (state.idx < SCENARIOS.length - 1) go(state.idx + 1);
+  else { render(); renderList(); toast("Son senaryo kaydedildi. Dışa aktarmayı unutmayın."); }
+}
+
+function go(i) {
+  const e = entry(sc().id); e.notes = $("notes").value.trim();
+  state.idx = Math.max(0, Math.min(SCENARIOS.length - 1, i)); selection = [];
+  persist(); render(); renderList();
+}
+
+function exportJson() {
+  const annotator = $("annotator").value.trim().toLowerCase();
+  if (!annotator) { toast("Önce etiketleyici adını girin"); $("annotator").focus(); return; }
+  if (annotator === "generator") { toast("'generator' ayrılmış bir ad"); return; }
+  const done = SCENARIOS.filter((s) => state.labels[s.id] && state.labels[s.id].done);
+  if (done.length < SCENARIOS.length &&
+      !confirm(`${SCENARIOS.length - done.length} senaryo henüz kaydedilmedi. Yalnızca kaydedilen ${done.length} senaryo dışa aktarılsın mı?`)) return;
+  const out = { format: "mucon-labels-v1", annotator, exported_at: new Date().toISOString(), labels: {} };
+  done.forEach((s) => {
+    const e = state.labels[s.id];
+    out.labels[s.id] = { conflicts: e.conflicts, notes: e.notes || "" };
+  });
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = `labels_${annotator}.json`; a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importJson(file) {
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (data.format !== "mucon-labels-v1") throw new Error("biçim tanınmadı");
+      Object.entries(data.labels).forEach(([sid, v]) => {
+        state.labels[sid] = { conflicts: v.conflicts || [], notes: v.notes || "", done: true };
+      });
+      if (data.annotator) { state.annotator = data.annotator; $("annotator").value = data.annotator; }
+      persist(); render(); renderList(); toast(`${Object.keys(data.labels).length} senaryo içe aktarıldı`);
+    } catch (err) { toast("İçe aktarılamadı: " + err.message); }
+  };
+  reader.readAsText(file);
+}
+
+document.querySelectorAll(".types button").forEach((b) => (b.onclick = () => addConflict(b.dataset.type)));
+$("saveBtn").onclick = saveAndNext;
+$("prevBtn").onclick = () => go(state.idx - 1);
+$("nextBtn").onclick = () => go(state.idx + 1);
+$("exportBtn").onclick = exportJson;
+$("importBtn").onclick = () => $("importFile").click();
+$("importFile").onchange = (ev) => { if (ev.target.files[0]) importJson(ev.target.files[0]); ev.target.value = ""; };
+$("annotator").oninput = (ev) => { state.annotator = ev.target.value.trim().toLowerCase(); persist(); };
+$("notes").oninput = (ev) => { entry(sc().id).notes = ev.target.value; persist(); };
+
+document.addEventListener("keydown", (ev) => {
+  if (ev.target.matches("input, textarea") || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+  const k = ev.key;
+  if (/^[1-9]$/.test(k)) { const m = sc().messages[+k - 1]; if (m) toggle(m.id); }
+  else if (TYPES[k]) addConflict(TYPES[k]);
+  else if (k === "Enter") { ev.preventDefault(); saveAndNext(); }
+  else if (k === "ArrowRight") go(state.idx + 1);
+  else if (k === "ArrowLeft") go(state.idx - 1);
+  else if (k === "Escape") { selection = []; render(); }
+  else if (k === "Backspace") {
+    const e = entry(sc().id);
+    if (e.conflicts.length) { e.conflicts.pop(); e.done = false; persist(); render(); renderList(); }
+  } else return;
+  ev.preventDefault();
+});
+
+load();
+$("annotator").value = state.annotator || "";
+if (!SCENARIOS.length) document.body.innerHTML = "<p style='padding:20px'>Senaryo yok.</p>";
+else { state.idx = Math.min(state.idx, SCENARIOS.length - 1); render(); renderList(); }
+</script>
+</body>
+</html>
